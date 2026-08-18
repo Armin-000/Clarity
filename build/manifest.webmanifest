@@ -1,0 +1,11 @@
+{
+  "name": "Clarity — pristupačni razgovori uživo",
+  "short_name": "Clarity",
+  "description": "Hrvatski prijepis govora u stvarnom vremenu za gluhe i nagluhe osobe.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f4ef",
+  "theme_color": "#191c19",
+  "lang": "hr",
+  "icons": [{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

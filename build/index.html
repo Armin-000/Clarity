@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="hr" data-contrast="normal" data-motion="full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#191c19" />
+  <meta name="description" content="Clarity pretvara govor u čitljiv hrvatski tekst u stvarnom vremenu za gluhe i nagluhe osobe." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/app.css" />
+  <title>Clarity — pristupačni razgovori uživo</title>
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.86 2.86-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.55v-.1A1.7 1.7 0 0 0 8.4 19.3a1.7 1.7 0 0 0-1.86.34l-.07.06-2.86-2.86.06-.06A1.7 1.7 0 0 0 4 14.95a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2.2V9.5h.1A1.7 1.7 0 0 0 3.9 8.35a1.7 1.7 0 0 0-.34-1.86l-.06-.07 2.86-2.86.06.06A1.7 1.7 0 0 0 8.3 4a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V2.2h4.05v.1a1.7 1.7 0 0 0 1.15 1.6 1.7 1.7 0 0 0 1.86-.34l.07-.06 2.86 2.86-.06.06A1.7 1.7 0 0 0 19.3 8.3c.13.36.34.7.6 1 .3.28.68.42 1.1.42h.1v4.05H21a1.7 1.7 0 0 0-1.6 1.15Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.7 2.9 8.2 7 10 4.1-1.8 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 20h16"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 14h8l1-14M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.2 4.2L17 9l-3.8 1.8L12 15l-1.2-4.2L7 9l3.8-1.8L12 3ZM19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14ZM5 14l.7 1.8L7.5 16.5l-1.8.7L5 19l-.7-1.8-1.8-.7 1.8-.7L5 14Z"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 20 4.2-1 10.3-10.3-3.2-3.2L5 15.8 4 20Z"/><path d="m13.8 7 3.2 3.2"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M5 3h14v18H5V3Z"/><path d="M8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 21h20L12 3Z"/><path d="M12 9v5M12 18h.01"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7 4 12l5 5M5 12h9a6 6 0 0 1 6 6"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="session-rail" aria-label="Povijest razgovora">
+      <div class="rail-head">
+        <div class="brand" aria-label="Clarity">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-name">Clarity</span>
+        </div>
+        <button id="newSessionButton" class="icon-button inverse" type="button" aria-label="Novi razgovor" title="Novi razgovor">
+          <svg><use href="#i-plus"/></svg>
+        </button>
+      </div>
+
+      <p class="rail-label">Nedavno</p>
+      <nav id="sessionList" class="session-list" aria-label="Spremljeni razgovori"></nav>
+
+      <div class="rail-foot">
+        <button id="settingsButton" class="settings-button rail-foot-action" type="button"><svg><use href="#i-settings"/></svg><span>Postavke pristupačnosti</span></button>
+        <div class="privacy-note rail-foot-action"><svg><use href="#i-shield"/></svg><span>Povijest ostaje na uređaju</span></div>
+        <nav class="legal-links" aria-label="Pravne informacije">
+          <button type="button" data-legal-modal="privacyPolicyModal">Politika privatnosti</button>
+          <button type="button" data-legal-modal="impressumModal">Impressum</button>
+        </nav>
+        <p class="rail-version" aria-label="Verzija aplikacije">Clarity 3.5.2</p>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <div class="mobile-brand"><span class="brand-mark"><span></span><span></span><span></span></span></div>
+        <div class="session-context">
+          <span class="context-kicker">Aktivni razgovor</span>
+          <strong id="activeModeLabel">Razgovor</strong>
+        </div>
+
+        <div id="modeSwitcher" class="mode-switcher" role="tablist" aria-label="Način razgovora">
+          <button class="active" data-mode="social" type="button" role="tab" aria-selected="true">Razgovor</button>
+          <button data-mode="work" type="button" role="tab" aria-selected="false">Posao</button>
+          <button data-mode="doctor" type="button" role="tab" aria-selected="false">Liječnik</button>
+          <button data-mode="lecture" type="button" role="tab" aria-selected="false">Predavanje</button>
+        </div>
+
+        <div class="header-actions">
+          <button id="undoButton" class="icon-button desktop-action" type="button" title="Ukloni zadnju rečenicu" aria-label="Ukloni zadnju rečenicu" disabled><svg><use href="#i-undo"/></svg></button>
+          <button id="copyButton" class="icon-button desktop-action" type="button" title="Kopiraj prijepis" aria-label="Kopiraj prijepis" disabled><svg><use href="#i-copy"/></svg></button>
+          <button id="downloadButton" class="icon-button desktop-action" type="button" title="Preuzmi prijepis" aria-label="Preuzmi prijepis" disabled><svg><use href="#i-download"/></svg></button>
+          <button id="clearButton" class="icon-button desktop-action" type="button" title="Obriši aktivni prijepis" aria-label="Obriši aktivni prijepis" disabled><svg><use href="#i-trash"/></svg></button>
+          <button id="mobileSessionsButton" class="mobile-nav-button" type="button"><svg><use href="#i-history"/></svg><span>Razgovori</span></button>
+          <button id="mobileSettingsButton" class="icon-button mobile-only" type="button" aria-label="Postavke"><svg><use href="#i-settings"/></svg></button>
+        </div>
+      </header>
+
+      <div id="statusBanner" class="status-banner" hidden role="alert">
+        <span class="status-banner-icon">!</span>
+        <p id="statusBannerText"></p>
+        <button id="closeStatusButton" type="button">Zatvori</button>
+      </div>
+
+      <div id="engineNotice" class="engine-notice">
+        <svg><use href="#i-shield"/></svg>
+        <span><strong>Stabilno hrvatsko diktiranje</strong> koristi isključivo hr-HR. Clarity više ne prekida SpeechRecognition samo zato što je nastala tišina: oporavak se pokreće tek kada mikrofon potvrdi govor bez prijepisa. Parcijalni tekst se nakon prirodne pauze može spremiti privremeno kako se rečenica ne bi izgubila, a hrvatski Precision sloj ispravlja sigurne ASR pogreške poput “ništo” → “ništa”.</span>
+        <button id="closeEngineNoticeButton" class="engine-notice-close" type="button" aria-label="Sakrij ovu obavijest" title="Sakrij obavijest"><svg><use href="#i-close"/></svg></button>
+      </div>
+
+      <div id="loudSoundAlert" class="loud-sound-alert" hidden role="status">
+        <svg><use href="#i-alert"/></svg>
+        <div><strong>Glasan zvuk u blizini</strong><span>Clarity je primijetio nagli porast glasnoće.</span></div>
+        <button id="dismissSoundAlert" type="button">U redu</button>
+      </div>
+
+      <div class="workspace-body">
+        <section class="transcript-view" aria-live="polite">
+          <div id="emptyTranscript" class="empty-transcript">
+            <div class="empty-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="eyebrow">Spremno za razgovor</p>
+            <h1>Manje napora.<br />Više razgovora.</h1>
+            <p class="empty-copy">Postavi MacBook između sebe i sugovornika, klikni pokretanje i čitaj razgovor u stvarnom vremenu.</p>
+            <div class="empty-actions">
+              <button id="emptyStartButton" class="primary-button" type="button"><svg><use href="#i-mic"/></svg>Pokreni slušanje</button>
+              <button id="demoButton" class="text-button" type="button">Prikaži primjer</button>
+            </div>
+            <p class="privacy-line"><svg><use href="#i-shield"/></svg> Prijepisi i povijest spremaju se samo u ovom pregledniku.</p>
+          </div>
+
+          <div id="transcriptStream" class="transcript-stream" hidden></div>
+
+          <article id="interimSegment" class="segment interim" hidden>
+            <div class="segment-meta"><span class="speaker-dot listening"></span><span id="interimSpeaker">Govornik 1</span><span class="live-badge">UŽIVO</span></div>
+            <p id="interimText"></p>
+          </article>
+        </section>
+
+        <aside class="context-panel">
+          <div class="context-panel-head">
+            <p class="eyebrow">Pomoć pri razgovoru</p>
+            <h2 id="contextTitle">Razgovor</h2>
+            <p id="contextDescription">Za svakodnevni razgovor licem u lice, sastanak ili kratku komunikaciju.</p>
+          </div>
+
+          <div class="context-rule"></div>
+
+          <button id="largeViewButton" class="accessibility-card" type="button">
+            <span class="accessibility-icon"><svg><use href="#i-expand"/></svg></span>
+            <span><strong>Veliki prikaz</strong><small>Zadnja rečenica preko cijelog ekrana.</small></span>
+            <svg class="chevron"><use href="#i-chevron"/></svg>
+          </button>
+
+          <button id="quickMessageButton" class="accessibility-card" type="button">
+            <span class="accessibility-icon"><svg><use href="#i-message"/></svg></span>
+            <span><strong>Brza poruka</strong><small>Pokaži sugovorniku što ti treba.</small></span>
+            <svg class="chevron"><use href="#i-chevron"/></svg>
+          </button>
+
+          <button id="addNoteButton" class="accessibility-card" type="button">
+            <span class="accessibility-icon"><svg><use href="#i-note"/></svg></span>
+            <span><strong>Dodaj bilješku</strong><small>Upiši važan detalj u razgovor.</small></span>
+            <svg class="chevron"><use href="#i-chevron"/></svg>
+          </button>
+
+          <div class="context-rule"></div>
+
+          <div class="context-block">
+            <span class="context-number">01</span>
+            <div><strong>Pokreni ili pauziraj slušanje</strong><p>Veliki okrugli gumb u donjoj traci pokreće i zaustavlja prijepis razgovora.</p></div>
+          </div>
+          <div class="context-block">
+            <span class="context-number">02</span>
+            <div><strong>Važne riječi se ističu</strong><p>Riječi poput “hitno”, “pazi” i “požar” dobit će jasno upozorenje.</p></div>
+          </div>
+          <div class="context-block">
+            <span class="context-number">03</span>
+            <div><strong>Ekran može ostati budan</strong><p>Kada preglednik podržava tu mogućnost, Clarity sprječava gašenje zaslona tijekom razgovora.</p></div>
+          </div>
+
+          <div class="engine-card">
+            <div class="engine-card-icon"><svg><use href="#i-volume"/></svg></div>
+            <div><span>Vizualna glasnoća</span><strong id="soundStateText">Mikrofon miruje</strong></div>
+            <div id="miniSoundMeter" class="mini-sound-meter"><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="control-dock">
+        <div class="dock-state">
+          <span id="statusDot" class="status-dot"></span>
+          <div><strong id="dockStatus">Pauzirano</strong><span id="dockSubstatus">Hrvatski · hr-HR</span></div>
+        </div>
+
+
+        <div class="dock-actions">
+          <button id="summaryButton" class="summary-button" type="button"><svg><use href="#i-spark"/></svg><span>Što sam propustio?</span></button>
+          <span id="elapsed" class="elapsed">00:00</span>
+          <button id="recordButton" class="record-button" type="button" aria-label="Pokreni slušanje"><svg><use href="#i-mic"/></svg></button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <button id="panelScrim" class="panel-scrim" type="button" aria-label="Zatvori panel" hidden></button>
+
+  <aside id="settingsPanel" class="side-panel" aria-label="Postavke" hidden>
+    <header>
+      <div><p class="eyebrow">Clarity</p><h2>Postavke</h2></div>
+      <button class="icon-button close-panel" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
+    </header>
+    <div class="panel-content">
+      <section>
+        <div class="setting-heading"><svg><use href="#i-user"/></svg><div><strong>Automatski govornici</strong><span>Clarity razlikuje glasove prema tonu i zvučnim značajkama. Ako netko kaže “Ja sam Marko” ili “Ovdje je Ana”, ime se dodjeljuje automatski.</span></div></div>
+        <div id="speakerProfilesList" class="speaker-profiles" aria-live="polite"></div>
+        <p class="setting-note">Nije potreban ručni odabir. Broj očekivanih govornika ovisi o profilu: Posao i Liječnik očekuju razgovor 1-na-1, Predavanje dopušta predavača i kratke upadice, a Razgovor ostaje otvoren za više ljudi. Kod potpuno istodobnog govora prijepis može biti manje precizan.</p>
+      </section>
+
+      <section>
+        <div class="setting-heading"><svg><use href="#i-expand"/></svg><div><strong>Veličina prijepisa</strong><span>Prilagodi tekst udaljenosti s koje čitaš.</span></div></div>
+        <input id="fontScaleInput" type="range" min="0.9" max="1.55" step="0.05" />
+        <div class="range-labels"><span>Manje</span><span>Veće</span></div>
+      </section>
+
+      <section>
+        <div class="setting-heading"><svg><use href="#i-volume"/></svg><div><strong>Upozorenje na glasan zvuk</strong><span>Opcionalno upozorenje samo za dugotrajan, vrlo glasan zvuk izvan govora.</span></div></div>
+        <label class="toggle-row"><span>Vizualno upozorenje</span><input id="soundAlertsInput" type="checkbox" /></label>
+        <label class="range-row"><span>Osjetljivost</span><input id="soundThresholdInput" type="range" min="75" max="98" step="1" /></label>
+      </section>
+
+      <section>
+        <div class="setting-heading"><svg><use href="#i-alert"/></svg><div><strong>Važne riječi</strong><span>Clarity ih ističe kako bi ih bilo teško previdjeti.</span></div></div>
+        <form id="keywordForm" class="word-form">
+          <input id="keywordInput" placeholder="Dodaj riječ…" aria-label="Nova važna riječ" />
+          <button type="submit">Dodaj</button>
+        </form>
+        <div id="keywordList" class="word-list"></div>
+      </section>
+
+      <section>
+        <div class="setting-heading"><svg><use href="#i-spark"/></svg><div><strong>Osobni rječnik</strong><span>Upiši točan zapis neobičnog imena ili naziva. Clarity ga može fonetski povezati s približno prepoznatom riječi, npr. Lyllo ili AlphaWave.</span></div></div>
+        <form id="vocabularyForm" class="word-form">
+          <input id="vocabularyInput" placeholder="Primjer: Lyllo ili AlphaWave" aria-label="Novi izraz" />
+          <button type="submit">Dodaj</button>
+        </form>
+        <div id="vocabularyList" class="word-list"></div>
+      </section>
+
+      <section>
+        <div class="setting-heading"><svg><use href="#i-settings"/></svg><div><strong>Prikaz i ponašanje</strong><span>Jednostavne postavke za različite potrebe.</span></div></div>
+        <label class="toggle-row"><span>Visoki kontrast</span><input id="highContrastInput" type="checkbox" /></label>
+        <label class="toggle-row"><span>Smanji animacije</span><input id="reduceMotionInput" type="checkbox" /></label>
+        <label class="toggle-row"><span>Automatski pomak na novi tekst</span><input id="autoScrollInput" type="checkbox" /></label>
+        <label class="toggle-row"><span>Prikaži vrijeme rečenice</span><input id="timestampsInput" type="checkbox" /></label>
+        <label class="toggle-row"><span>Drži ekran uključenim</span><input id="wakeLockInput" type="checkbox" /></label>
+      </section>
+
+      <section class="legal-settings-section">
+        <div class="setting-heading"><svg><use href="#i-shield"/></svg><div><strong>Pravne informacije</strong><span>Privatnost, način obrade podataka i podaci o aplikaciji.</span></div></div>
+        <div class="legal-settings-actions">
+          <button type="button" data-legal-modal="privacyPolicyModal">Politika privatnosti</button>
+          <button type="button" data-legal-modal="impressumModal">Impressum</button>
+        </div>
+      </section>
+
+      <section>
+        <button id="resetSettingsButton" class="danger-text-button" type="button">Vrati početne postavke</button>
+      </section>
+    </div>
+  </aside>
+
+  <aside id="summaryPanel" class="summary-panel" aria-label="Sažetak razgovora" hidden>
+    <header>
+      <div class="summary-symbol"><svg><use href="#i-spark"/></svg></div>
+      <div><p class="eyebrow">Nedavni razgovor</p><h2>Što sam propustio?</h2></div>
+      <button class="icon-button close-panel" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
+    </header>
+    <ol id="summaryList"></ol>
+    <p class="summary-disclaimer">Ovo je jednostavan pregled zadnjih važnih rečenica, a ne medicinski ili pravni sažetak. Za važne odluke pročitaj cijeli razgovor.</p>
+  </aside>
+
+  <aside id="mobileSessionsPanel" class="side-panel mobile-sessions-panel" aria-label="Razgovori" hidden>
+    <header>
+      <div><p class="eyebrow">Clarity</p><h2>Razgovori</h2></div>
+      <button class="icon-button close-panel" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
+    </header>
+    <div class="mobile-sessions-content">
+      <button id="mobileNewSessionButton" class="new-conversation-button" type="button"><span class="new-conversation-icon"><svg><use href="#i-plus"/></svg></span><span><strong>Novi razgovor</strong><small>Započni praznu sesiju</small></span><svg><use href="#i-chevron"/></svg></button>
+      <p class="mobile-section-label">Nedavno</p>
+      <p class="mobile-swipe-hint">Povuci razgovor ulijevo za brisanje.</p>
+      <nav id="mobileSessionList" class="mobile-session-list"></nav>
+    </div>
+  </aside>
+
+  <div id="largeView" class="large-view" hidden role="dialog" aria-modal="true" aria-label="Veliki prikaz prijepisa">
+    <header>
+      <div><span id="largeViewSpeaker">Govornik 1</span><strong id="largeViewStatus">Zadnja rečenica</strong></div>
+      <button id="closeLargeViewButton" type="button" aria-label="Zatvori veliki prikaz"><svg><use href="#i-close"/></svg></button>
+    </header>
+    <main>
+      <p id="largeViewText">Pokreni slušanje i zadnja izgovorena rečenica prikazat će se ovdje.</p>
+    </main>
+    <footer><span>Clarity · hrvatski prijepis uživo</span><span id="largeViewClock"></span></footer>
+  </div>
+
+  <div id="quickMessageModal" class="center-modal" hidden role="dialog" aria-modal="true" aria-label="Brze poruke">
+    <div class="center-modal-card">
+      <header><div><p class="eyebrow">Pokaži sugovorniku</p><h2>Brza poruka</h2></div><button class="icon-button close-center-modal" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button></header>
+      <div class="quick-message-grid">
+        <button type="button" data-message="Molim vas, ponovite zadnju rečenicu.">Ponovite zadnju rečenicu</button>
+        <button type="button" data-message="Molim vas, govorite malo sporije.">Govorite sporije</button>
+        <button type="button" data-message="Molim vas, gledajte prema mikrofonu dok govorite.">Gledajte prema mikrofonu</button>
+        <button type="button" data-message="Nisam razumio. Možete li to reći drugim riječima?">Recite drugim riječima</button>
+        <button type="button" data-message="Samo trenutak, čitam prijepis.">Samo trenutak</button>
+        <button type="button" data-message="Hvala, sada sam razumio.">Hvala, razumio sam</button>
+      </div>
+      <form id="customMessageForm" class="custom-message-form"><input id="customMessageInput" placeholder="Napiši vlastitu poruku…" /><button type="submit">Prikaži</button></form>
+    </div>
+  </div>
+
+  <div id="messageDisplay" class="message-display" hidden role="dialog" aria-modal="true" aria-label="Poruka sugovorniku">
+    <button id="closeMessageDisplayButton" type="button" aria-label="Zatvori poruku"><svg><use href="#i-close"/></svg></button>
+    <p id="messageDisplayText"></p>
+    <span>Dodirni ili klikni za zatvaranje</span>
+  </div>
+
+  <div id="noteModal" class="center-modal" hidden role="dialog" aria-modal="true" aria-label="Dodaj bilješku">
+    <form id="noteForm" class="center-modal-card small-modal">
+      <header><div><p class="eyebrow">Aktivni razgovor</p><h2>Dodaj bilješku</h2></div><button class="icon-button close-center-modal" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button></header>
+      <textarea id="noteInput" rows="5" placeholder="Upiši važan detalj koji želiš sačuvati…"></textarea>
+      <div class="modal-actions"><button class="text-button close-center-modal" type="button">Odustani</button><button class="primary-button" type="submit">Dodaj bilješku</button></div>
+    </form>
+  </div>
+
+  <div id="privacyPolicyModal" class="center-modal legal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="privacyPolicyTitle">
+    <article class="center-modal-card legal-modal-card">
+      <header>
+        <div><p class="eyebrow">Clarity · pravne informacije</p><h2 id="privacyPolicyTitle">Politika privatnosti</h2></div>
+        <button class="icon-button close-legal-modal" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
+      </header>
+      <p class="legal-updated">Ažurirano: 18. kolovoza 2026.</p>
+
+      <section>
+        <h3>1. Tko upravlja aplikacijom</h3>
+        <p>Clarity je projekt koji razvija Armin Lišić. Za pitanja o privatnosti i aplikaciji dostupan je javni repozitorij projekta <strong>Armin-000/Clarity</strong> na GitHubu. Ako se Clarity distribuira preko obrta, tvrtke ili druge organizacije, podaci te pravne osobe trebaju se dodati u Impressum prije javne komercijalne uporabe.</p>
+      </section>
+
+      <section>
+        <h3>2. Što Clarity sprema</h3>
+        <p>U ovoj verziji prijepisi razgovora, spremljene sesije, postavke pristupačnosti, važne riječi i osobni rječnik spremaju se lokalno u pohranu preglednika na uređaju korisnika. Clarity nema vlastitu bazu podataka u koju šalje i trajno sprema te prijepise.</p>
+        <p>Podaci ostaju u pregledniku dok ih korisnik ne obriše u aplikaciji, ne očisti podatke preglednika ili ne ukloni lokalnu pohranu stranice.</p>
+      </section>
+
+      <section>
+        <h3>3. Mikrofon i prepoznavanje govora</h3>
+        <p>Clarity traži pristup mikrofonu samo kada korisnik pokrene slušanje. Aplikacija namjerno ne izrađuje niti sprema zvučne snimke razgovora.</p>
+        <p>Prepoznavanje govora koristi funkciju <strong>SpeechRecognition / Web Speech API</strong> preglednika. Ovisno o pregledniku, operacijskom sustavu i pružatelju usluge, obrada govora može uključivati udaljene poslužitelje tog pružatelja. Takva obrada nije pod izravnom kontrolom Clarityja i podliježe pravilima privatnosti odabranog preglednika odnosno pružatelja usluge.</p>
+      </section>
+
+      <section>
+        <h3>4. Kolačići, analitika i tehnički zapisi</h3>
+        <p>Ova verzija Clarityja ne postavlja vlastite marketinške kolačiće i ne sadrži ugrađenu analitiku za praćenje korisnika. Ako se aplikaciji pristupa preko internetskog hostinga, pružatelj hostinga može obrađivati uobičajene tehničke zapise poput IP adrese, vremena zahtjeva i podataka preglednika radi sigurnosti i isporuke usluge.</p>
+      </section>
+
+      <section>
+        <h3>5. Svrha i pravna osnova</h3>
+        <p>Lokalna obrada služi isključivo za funkcije koje korisnik traži: pretvaranje govora u tekst, spremanje razgovora, prilagodbu prikaza i primjenu osobnog rječnika. Dopuštenje za mikrofon daje i može povući sam korisnik kroz postavke preglednika.</p>
+      </section>
+
+      <section>
+        <h3>6. Brisanje i prava korisnika</h3>
+        <p>Korisnik može obrisati pojedine razgovore ili podatke stranice u pregledniku. Budući da se glavni sadržaj razgovora u ovoj verziji čuva lokalno, Clarity u pravilu nema udaljenu kopiju koju bi mogao vratiti nakon brisanja. Za podatke koje eventualno obrađuju preglednik ili pružatelj hostinga primjenjuju se njihove vlastite procedure i politike.</p>
+      </section>
+
+      <section>
+        <h3>7. Važna napomena</h3>
+        <p>Clarity je pomagalo za pristupačniju komunikaciju. Automatski prijepis može sadržavati pogreške, osobito kod imena, brojeva, doza, stručnih izraza, buke ili istodobnog govora. Kritične informacije uvijek treba potvrditi s osobom koja ih je izgovorila.</p>
+      </section>
+    </article>
+  </div>
+
+  <div id="impressumModal" class="center-modal legal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="impressumTitle">
+    <article class="center-modal-card legal-modal-card">
+      <header>
+        <div><p class="eyebrow">Clarity · pravne informacije</p><h2 id="impressumTitle">Impressum</h2></div>
+        <button class="icon-button close-legal-modal" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
+      </header>
+
+      <section class="impressum-card">
+        <dl>
+          <div><dt>Naziv aplikacije</dt><dd>Clarity</dd></div>
+          <div><dt>Razvoj projekta</dt><dd>Armin Lišić</dd></div>
+          <div><dt>Projekt</dt><dd>GitHub · Armin-000/Clarity</dd></div>
+          <div><dt>Namjena</dt><dd>Pristupačniji razgovori i hrvatski prijepis govora u stvarnom vremenu</dd></div>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Odgovornost i točnost prijepisa</h3>
+        <p>Clarity je pomoćni alat i ne jamči potpunu, neprekinutu ili bezuvjetno točnu transkripciju. Rezultati ovise o mikrofonu, buci, izgovoru, pregledniku, mrežnoj vezi i vanjskom mehanizmu prepoznavanja govora.</p>
+        <p>Clarity nije zamjena za ovlaštenog tumača, liječničku procjenu, pravni savjet, hitne službe ili drugi profesionalni postupak. Kod odluka koje mogu imati zdravstvene, pravne, financijske ili sigurnosne posljedice korisnik treba provjeriti izvorne informacije.</p>
+      </section>
+
+      <section>
+        <h3>Dostupnost usluge</h3>
+        <p>Aplikacija se može mijenjati, privremeno biti nedostupna ili se pojedine funkcije mogu razlikovati među preglednicima. U mjeri dopuštenoj primjenjivim propisima, autor ne odgovara za štetu nastalu isključivim oslanjanjem na netočan automatski prijepis ili nedostupnost funkcije koju pruža preglednik odnosno treća strana.</p>
+      </section>
+
+      <section>
+        <h3>Autorska prava i licenca</h3>
+        <p>Naziv, dizajn, tekstovi i izvorni programski dijelovi Clarityja zaštićeni su primjenjivim pravilima autorskog prava, osim dijelova za koje vrijede zasebne licence trećih strana.</p>
+        <p>Clarity se daje na korištenje prema vlasničkoj evaluacijskoj licenci iz datoteke <strong>LICENSE.md</strong>. Dopušteno je nekomercijalno pokretanje, testiranje, provjera pristupačnosti i pregled načina rada. Prodaja, monetizacija, redistribucija, prepakiranje, objava izmijenjenih kopija ili korištenje zaštićenih dijelova u drugom komercijalnom proizvodu zahtijeva prethodno pisano dopuštenje nositelja autorskog prava.</p>
+      </section>
+
+      <section class="legal-warning">
+        <h3>Podaci koje treba dopuniti prije komercijalne objave</h3>
+        <p>Ako Clarity bude javno pružan kao usluga obrta ili trgovačkog društva, Impressum treba dopuniti punim nazivom pružatelja, sjedištem/adresom, izravnim kontaktom, podacima o registru i poreznim podacima kada su primjenjivi.</p>
+      </section>
+    </article>
+  </div>
+
+  <div id="toast" class="toast" hidden role="status"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
