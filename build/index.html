@@ -4,11 +4,89 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#191c19" />
-  <meta name="description" content="Clarity pretvara govor u čitljiv hrvatski tekst u stvarnom vremenu za gluhe i nagluhe osobe." />
+  <meta name="description" content="Clarity je web aplikacija za prijepis hrvatskog govora u stvarnom vremenu, namijenjena pristupačnijoj komunikaciji gluhih i nagluhih osoba." />
+  <meta name="author" content="Armin Lišić" />
+  <meta name="application-name" content="Clarity" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <link rel="canonical" href="https://clarity.codarox.com/" />
+  <link rel="alternate" hreflang="hr-HR" href="https://clarity.codarox.com/" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="/manifest.webmanifest" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="hr_HR" />
+  <meta property="og:site_name" content="Clarity" />
+  <meta property="og:title" content="Clarity — hrvatski govor u tekst uživo | Codarox" />
+  <meta property="og:description" content="Pristupačna web aplikacija za prijepis hrvatskog govora u stvarnom vremenu za gluhe i nagluhe osobe." />
+  <meta property="og:url" content="https://clarity.codarox.com/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Clarity — hrvatski govor u tekst uživo | Codarox" />
+  <meta name="twitter:description" content="Pristupačna web aplikacija za prijepis hrvatskog govora u stvarnom vremenu za gluhe i nagluhe osobe." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://clarity.codarox.com/#website",
+        "url": "https://clarity.codarox.com/",
+        "name": "Clarity",
+        "alternateName": ["Clarity Accessibility", "clarity.codarox.com"],
+        "description": "Web aplikacija za prijepis hrvatskog govora u stvarnom vremenu za pristupačniju komunikaciju gluhih i nagluhih osoba.",
+        "inLanguage": "hr-HR",
+        "creator": { "@id": "https://clarity.codarox.com/#author" }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://clarity.codarox.com/#app",
+        "name": "Clarity",
+        "url": "https://clarity.codarox.com/",
+        "description": "Clarity pretvara hrvatski govor u čitljiv prijepis u stvarnom vremenu i nudi načine rada za razgovor, posao, liječnika i predavanje.",
+        "applicationCategory": "AccessibilityApplication",
+        "applicationSubCategory": "Speech-to-text accessibility tool",
+        "operatingSystem": "Web",
+        "browserRequirements": "Moderan preglednik s podrškom za mikrofon i SpeechRecognition / Web Speech API.",
+        "inLanguage": "hr-HR",
+        "isAccessibleForFree": true,
+        "author": { "@id": "https://clarity.codarox.com/#author" },
+        "creator": { "@id": "https://clarity.codarox.com/#author" },
+        "isPartOf": { "@id": "https://clarity.codarox.com/#website" },
+        "sameAs": ["https://github.com/Armin-000/Clarity"],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "featureList": [
+          "Prijepis hrvatskog govora u stvarnom vremenu",
+          "Načini Razgovor, Posao, Liječnik i Predavanje",
+          "Automatsko razlikovanje govornika",
+          "Lokalna povijest razgovora",
+          "Veći tekst, visoki kontrast i smanjene animacije",
+          "Osobni rječnik i hrvatski Precision sloj"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://clarity.codarox.com/#author",
+        "name": "Armin Lišić",
+        "alternateName": "Armin Lisic",
+        "url": "https://codarox.com/",
+        "sameAs": [
+          "https://github.com/Armin-000",
+          "https://github.com/Armin-000/Clarity"
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="/app.css" />
-  <title>Clarity — pristupačni razgovori uživo</title>
+  <title>Clarity — hrvatski govor u tekst uživo | Codarox</title>
 </head>
 <body>
   <svg class="svg-sprite" aria-hidden="true">
@@ -109,7 +187,7 @@
             <div class="empty-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
             <p class="eyebrow">Spremno za razgovor</p>
             <h1>Manje napora.<br />Više razgovora.</h1>
-            <p class="empty-copy">Postavi MacBook između sebe i sugovornika, klikni pokretanje i čitaj razgovor u stvarnom vremenu.</p>
+            <p class="empty-copy">Clarity pretvara hrvatski govor u čitljiv prijepis u stvarnom vremenu za gluhe i nagluhe osobe. Postavi uređaj između sebe i sugovornika i pokreni slušanje.</p>
             <div class="empty-actions">
               <button id="emptyStartButton" class="primary-button" type="button"><svg><use href="#i-mic"/></svg>Pokreni slušanje</button>
               <button id="demoButton" class="text-button" type="button">Prikaži primjer</button>
@@ -331,7 +409,7 @@
 
       <section>
         <h3>1. Tko upravlja aplikacijom</h3>
-        <p>Clarity je projekt koji razvija Armin Lišić. Za pitanja o privatnosti i aplikaciji dostupan je javni repozitorij projekta <strong>Armin-000/Clarity</strong> na GitHubu. Ako se Clarity distribuira preko obrta, tvrtke ili druge organizacije, podaci te pravne osobe trebaju se dodati u Impressum prije javne komercijalne uporabe.</p>
+        <p>Clarity je projekt koji razvija Armin Lišić. Javna verzija dostupna je na <a href="https://clarity.codarox.com/">clarity.codarox.com</a>, a za pitanja o privatnosti i aplikaciji dostupan je javni repozitorij <a href="https://github.com/Armin-000/Clarity" rel="noopener noreferrer">Armin-000/Clarity</a> na GitHubu. Ako se Clarity distribuira preko obrta, tvrtke ili druge organizacije, podaci te pravne osobe trebaju se dodati u Impressum prije javne komercijalne uporabe.</p>
       </section>
 
       <section>
@@ -379,7 +457,9 @@
         <dl>
           <div><dt>Naziv aplikacije</dt><dd>Clarity</dd></div>
           <div><dt>Razvoj projekta</dt><dd>Armin Lišić</dd></div>
-          <div><dt>Projekt</dt><dd>GitHub · Armin-000/Clarity</dd></div>
+          <div><dt>Javna aplikacija</dt><dd><a href="https://clarity.codarox.com/">clarity.codarox.com</a></dd></div>
+          <div><dt>Portfolio autora</dt><dd><a href="https://codarox.com/">Codarox</a></dd></div>
+          <div><dt>Projekt</dt><dd><a href="https://github.com/Armin-000/Clarity" rel="noopener noreferrer">GitHub · Armin-000/Clarity</a></dd></div>
           <div><dt>Namjena</dt><dd>Pristupačniji razgovori i hrvatski prijepis govora u stvarnom vremenu</dd></div>
         </dl>
       </section>

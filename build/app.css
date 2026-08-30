@@ -556,6 +556,8 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 .impressum-card dl > div:last-child { border-bottom: 0; }
 .impressum-card dt { color: var(--faint); font-size: .68rem; font-weight: 720; }
 .impressum-card dd { margin: 0; color: var(--ink); font-size: .75rem; line-height: 1.5; }
+.impressum-card dd a, .legal-modal-card p a { color: inherit; text-decoration-color: rgba(31,45,38,.35); text-underline-offset: 2px; }
+.impressum-card dd a:hover, .legal-modal-card p a:hover { text-decoration-color: currentColor; }
 .legal-warning { margin-top: 8px; padding: 16px !important; border: 1px solid #d8c99e !important; border-radius: 10px; background: #faf6e9; }
 
 @keyframes panel-in { from { opacity: 0; transform: translateX(28px); } }

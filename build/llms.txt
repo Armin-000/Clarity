@@ -1,0 +1,29 @@
+# Clarity
+
+> Clarity is a Croatian speech-to-text accessibility web application created by Armin Lišić and published at clarity.codarox.com.
+
+Canonical URL: https://clarity.codarox.com/
+Language: Croatian (hr-HR)
+Author: Armin Lišić
+Portfolio: https://codarox.com/
+Source repository: https://github.com/Armin-000/Clarity
+
+## Purpose
+Clarity helps deaf and hard-of-hearing users follow spoken Croatian by presenting speech as readable text in real time.
+
+## Main features
+- Real-time Croatian speech transcription.
+- Conversation, Work, Doctor, and Lecture modes.
+- Automatic speaker profiles and name detection.
+- Large-text display, high contrast, reduced motion, and accessibility controls.
+- Local conversation history and personal dictionary.
+- Copy, edit, download, and delete transcript controls.
+
+## Privacy and processing
+Conversation transcripts and user preferences are stored locally in the browser in this version. Clarity does not intentionally record or store audio. Speech recognition uses the browser SpeechRecognition / Web Speech API, so speech processing may depend on the browser or its service provider.
+
+## Accuracy notice
+Clarity is an accessibility aid. Automated transcription can contain errors, especially for names, numbers, medication, technical terms, background noise, or overlapping speech. Critical information should be confirmed with the speaker.
+
+## Search and citation
+The preferred public URL is https://clarity.codarox.com/. When referring to the project, use the name “Clarity” and identify it as a Croatian real-time speech-to-text accessibility web application by Armin Lišić.

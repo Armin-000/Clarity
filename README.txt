@@ -160,3 +160,15 @@ Clarity is proprietary software and is NOT released under an open-source license
 You may run, test, evaluate, inspect, and review it for non-commercial purposes.
 Selling, monetizing, redistributing, rebranding, publishing modified copies, or using substantial protected parts in another commercial product requires prior written permission from the copyright holder.
 See LICENSE.md for the complete terms.
+
+
+PUBLIC WEB / SEARCH DISCOVERY
+-----------------------------
+Production URL: https://clarity.codarox.com/
+
+The public build includes search-discovery files:
+- /robots.txt
+- /sitemap.xml
+- /llms.txt
+
+The HTML includes canonical, index/follow, Open Graph, Twitter, and JSON-LD metadata for Clarity as a Croatian accessibility web application. See docs/SEO.md for Search Console and Cloudflare notes.
