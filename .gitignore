@@ -1,0 +1,5 @@
+.DS_Store
+.clarity.pid
+.clarity.port
+clarity.log
+clarity-error.log

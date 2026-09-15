@@ -1,0 +1,9 @@
+{
+  "ok": true,
+  "app": "Clarity",
+  "version": "5.1.1-web",
+  "mode": "web-platform-speech",
+  "language": "hr-HR",
+  "storage": "browser-local",
+  "transcription": "SpeechRecognition/Web Speech API provided by the client browser/platform"
+}
