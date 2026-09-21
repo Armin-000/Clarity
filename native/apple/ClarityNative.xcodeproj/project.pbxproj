@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00A3CD8FDAEBB9D386895B01 /* ClarityMacSpeechBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D60DF4D6AF5B0AECF95BEE /* ClarityMacSpeechBridge.swift */; };
+		30408A84BE512C92452EC1CB /* ClarityMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E822640BDF114D9DC3DA /* ClarityMacApp.swift */; };
+		3463228BF39B784FA6CCDAD0 /* ClarityIOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5F0C3980E8ACD5766D503 /* ClarityIOSViewController.swift */; };
+		47CF48B9C956BA033600809F /* ClarityIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F419E573FE694103EEF3581 /* ClarityIOSApp.swift */; };
+		6E0864E2B23550F9E6E58CA3 /* ClarityIOSContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B82813407482F985F85B06 /* ClarityIOSContainer.swift */; };
+		9E46B83794FC505DE4206AFF /* ClarityMacContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21856AFE3ACDE4E108C04221 /* ClarityMacContainer.swift */; };
+		E160DF6212080969E5964187 /* ClarityIOSSpeechBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF508499CEA4D2CCAEE6D6 /* ClarityIOSSpeechBridge.swift */; };
+		E2EEF9C2BF47E73493304D06 /* ClarityMacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F090C3758E7A1295E16A1C60 /* ClarityMacViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A311EE040474E8DE70D872D /* ClarityMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClarityMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21856AFE3ACDE4E108C04221 /* ClarityMacContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityMacContainer.swift; sourceTree = "<group>"; };
+		2F14E822640BDF114D9DC3DA /* ClarityMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityMacApp.swift; sourceTree = "<group>"; };
+		2F419E573FE694103EEF3581 /* ClarityIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityIOSApp.swift; sourceTree = "<group>"; };
+		45D60DF4D6AF5B0AECF95BEE /* ClarityMacSpeechBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityMacSpeechBridge.swift; sourceTree = "<group>"; };
+		474762E6368B074C0EBF5A6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4783AE5E15B266A701510BA2 /* ClarityMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClarityMac.entitlements; sourceTree = "<group>"; };
+		9BB5F0C3980E8ACD5766D503 /* ClarityIOSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityIOSViewController.swift; sourceTree = "<group>"; };
+		C1EB22F666B81E4D8DDF4B70 /* ClarityIOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = ClarityIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1E8A8C8226FF5C32027A7AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E1B82813407482F985F85B06 /* ClarityIOSContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityIOSContainer.swift; sourceTree = "<group>"; };
+		F090C3758E7A1295E16A1C60 /* ClarityMacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityMacViewController.swift; sourceTree = "<group>"; };
+		F5AF508499CEA4D2CCAEE6D6 /* ClarityIOSSpeechBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarityIOSSpeechBridge.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2CC3E5EF55C8D4B1CCC36972 = {
+			isa = PBXGroup;
+			children = (
+				2F2CC94276F9A8EFBC0AFEFA /* iOS */,
+				39A6BD1532B9F50560235984 /* macOS */,
+				EC0400D64AAFF5E34CAC9225 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F2CC94276F9A8EFBC0AFEFA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2F419E573FE694103EEF3581 /* ClarityIOSApp.swift */,
+				E1B82813407482F985F85B06 /* ClarityIOSContainer.swift */,
+				F5AF508499CEA4D2CCAEE6D6 /* ClarityIOSSpeechBridge.swift */,
+				9BB5F0C3980E8ACD5766D503 /* ClarityIOSViewController.swift */,
+				D1E8A8C8226FF5C32027A7AC /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		39A6BD1532B9F50560235984 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				4783AE5E15B266A701510BA2 /* ClarityMac.entitlements */,
+				2F14E822640BDF114D9DC3DA /* ClarityMacApp.swift */,
+				21856AFE3ACDE4E108C04221 /* ClarityMacContainer.swift */,
+				45D60DF4D6AF5B0AECF95BEE /* ClarityMacSpeechBridge.swift */,
+				F090C3758E7A1295E16A1C60 /* ClarityMacViewController.swift */,
+				474762E6368B074C0EBF5A6E /* Info.plist */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		EC0400D64AAFF5E34CAC9225 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1EB22F666B81E4D8DDF4B70 /* ClarityIOS.app */,
+				1A311EE040474E8DE70D872D /* ClarityMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F286002964897E9773AD1EC /* ClarityMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48956E25D9C1C0580428CD8C /* Build configuration list for PBXNativeTarget "ClarityMac" */;
+			buildPhases = (
+				CC640EF0CF077B20489D3E46 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClarityMac;
+			packageProductDependencies = (
+			);
+			productName = ClarityMac;
+			productReference = 1A311EE040474E8DE70D872D /* ClarityMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9449ACAF799475CCA8A77D87 /* ClarityIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5F635B0DF2F4C5BD7E5CBE5 /* Build configuration list for PBXNativeTarget "ClarityIOS" */;
+			buildPhases = (
+				4B602A8B1F0092D82940163F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClarityIOS;
+			packageProductDependencies = (
+			);
+			productName = ClarityIOS;
+			productReference = C1EB22F666B81E4D8DDF4B70 /* ClarityIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C83C0F74883E7BB916AFDBE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = EFDD1DB63D5B0EF29C9781B4 /* Build configuration list for PBXProject "ClarityNative" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2CC3E5EF55C8D4B1CCC36972;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EC0400D64AAFF5E34CAC9225 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9449ACAF799475CCA8A77D87 /* ClarityIOS */,
+				2F286002964897E9773AD1EC /* ClarityMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B602A8B1F0092D82940163F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47CF48B9C956BA033600809F /* ClarityIOSApp.swift in Sources */,
+				6E0864E2B23550F9E6E58CA3 /* ClarityIOSContainer.swift in Sources */,
+				E160DF6212080969E5964187 /* ClarityIOSSpeechBridge.swift in Sources */,
+				3463228BF39B784FA6CCDAD0 /* ClarityIOSViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC640EF0CF077B20489D3E46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30408A84BE512C92452EC1CB /* ClarityMacApp.swift in Sources */,
+				9E46B83794FC505DE4206AFF /* ClarityMacContainer.swift in Sources */,
+				00A3CD8FDAEBB9D386895B01 /* ClarityMacSpeechBridge.swift in Sources */,
+				E2EEF9C2BF47E73493304D06 /* ClarityMacViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7047D943C9A0F4741BFCD8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codarox.clarity;
+				PRODUCT_NAME = Clarity;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		73095667F856674DD0D1006A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = macOS/ClarityMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codarox.clarity.mac;
+				PRODUCT_NAME = Clarity;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B51DE2B66ABAC5CE89EA9480 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codarox.clarity;
+				PRODUCT_NAME = Clarity;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C952ACB7FEA541139176508A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = macOS/ClarityMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codarox.clarity.mac;
+				PRODUCT_NAME = Clarity;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E52AC619B2CC6BBEF1E1DB09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FE9DB2A3B6952983551477AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		48956E25D9C1C0580428CD8C /* Build configuration list for PBXNativeTarget "ClarityMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73095667F856674DD0D1006A /* Debug */,
+				C952ACB7FEA541139176508A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E5F635B0DF2F4C5BD7E5CBE5 /* Build configuration list for PBXNativeTarget "ClarityIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B51DE2B66ABAC5CE89EA9480 /* Debug */,
+				7047D943C9A0F4741BFCD8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EFDD1DB63D5B0EF29C9781B4 /* Build configuration list for PBXProject "ClarityNative" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE9DB2A3B6952983551477AE /* Debug */,
+				E52AC619B2CC6BBEF1E1DB09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C83C0F74883E7BB916AFDBE0 /* Project object */;
+}
