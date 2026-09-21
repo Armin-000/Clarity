@@ -1,0 +1,20 @@
+{
+  "name": "Clarity — hrvatski govor u tekst uživo",
+  "short_name": "Clarity",
+  "description": "Pristupačna web aplikacija za prijepis hrvatskog govora u stvarnom vremenu za gluhe i nagluhe osobe.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f4ef",
+  "theme_color": "#191c19",
+  "lang": "hr-HR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "/",
+  "scope": "/"
+}

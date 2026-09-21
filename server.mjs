@@ -63,8 +63,8 @@ const server = http.createServer((request, response) => {
 
   if (pathname === '/clarity-health.json' || pathname === '/api/health') {
     sendJson(response, 200, {
-      ok: true, app: 'Clarity', version, mode: 'web-platform-speech', language: 'hr-HR',
-      storage: 'indexeddb/local browser storage', transcription: 'SpeechRecognition / Web Speech API supplied by the client browser/platform'
+      ok: true, app: 'Clarity', version, mode: 'native-system-speech-with-web-fallback', language: 'hr-HR',
+      storage: 'indexeddb/local browser storage', transcription: 'Native OS speech service through ClaritySpeech bridge; Web Speech fallback in browsers; no Clarity STT model/server'
     });
     return;
   }

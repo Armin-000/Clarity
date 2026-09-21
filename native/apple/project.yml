@@ -1,0 +1,46 @@
+name: ClarityNative
+options:
+  bundleIdPrefix: com.codarox
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+targets:
+  ClarityIOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: iOS
+    resources:
+      - path: Resources/clarity
+    info:
+      path: iOS/Info.plist
+      properties:
+        CFBundleDisplayName: Clarity
+        UILaunchScreen: {}
+        NSMicrophoneUsageDescription: Clarity koristi mikrofon samo dok korisnik pokrene live prijepis.
+        NSSpeechRecognitionUsageDescription: Clarity koristi sistemsko prepoznavanje govora za hrvatski live prijepis.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codarox.clarity
+        PRODUCT_NAME: Clarity
+  ClarityMac:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: macOS
+    resources:
+      - path: Resources/clarity
+    info:
+      path: macOS/Info.plist
+      properties:
+        CFBundleDisplayName: Clarity
+        NSMicrophoneUsageDescription: Clarity koristi mikrofon samo dok korisnik pokrene live prijepis.
+        NSSpeechRecognitionUsageDescription: Clarity koristi sistemsko prepoznavanje govora za hrvatski live prijepis.
+    entitlements:
+      path: macOS/ClarityMac.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.codarox.clarity.mac
+        PRODUCT_NAME: Clarity
