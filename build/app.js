@@ -147,32 +147,43 @@ async function clearDurableState() {
   const modeData = {
     social: {
       label: 'Razgovor',
+      labelEn: 'Conversation',
       description: 'Uravnotežen način za svakodnevni razgovor i više ljudi u istoj prostoriji.',
+      descriptionEn: 'Balanced mode for everyday conversation and multiple people in the same room.',
       status: 'Uravnotežen profil · više govornika',
+      statusEn: 'Balanced profile · multiple speakers',
       speakerLimit: 6,
       maxAlternatives: 5,
       reviewConfidence: .62,
       phraseBoost: 2.2,
       vad: { noiseMultiplier: 1.68, bias: .00055, min: .0032, max: .024, hangover: 390 },
       audio: { highPass: 72, presenceHz: 2700, presenceGain: 3.1, compressorThreshold: -40, compressorRatio: 4.0, compressorAttack: .003, compressorRelease: .22, gain: 1.28, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
-      phrases: ['pozdrav', 'hvala', 'molim', 'dogovor', 'termin']
+      phrases: ['pozdrav', 'hvala', 'molim', 'dogovor', 'termin'],
+      phrasesEn: ['hello', 'thanks', 'thank you', 'please', 'agreement', 'appointment', 'meeting', 'time', 'location']
     },
     work: {
       label: 'Posao',
+      labelEn: 'Work',
       description: 'Optimizirano za razgovor 1-na-1 između korisnika i klijenta, poslodavca ili kolege.',
+      descriptionEn: 'Optimized for one-to-one conversations with a client, employer, or colleague.',
       status: 'Posao · 1-na-1 · dva glasovna profila',
+      statusEn: 'Work · one-to-one · two voice profiles',
       speakerLimit: 2,
       maxAlternatives: 7,
       reviewConfidence: .68,
       phraseBoost: 3.4,
       vad: { noiseMultiplier: 1.62, bias: .00050, min: .0030, max: .023, hangover: 400 },
       audio: { highPass: 76, presenceHz: 2750, presenceGain: 3.3, compressorThreshold: -41, compressorRatio: 4.2, compressorAttack: .003, compressorRelease: .23, gain: 1.32, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
-      phrases: ['klijent', 'poslodavac', 'projekt', 'rok', 'ugovor', 'ponuda', 'račun', 'cijena', 'sastanak', 'isporuka', 'zadatak', 'prioritet', 'dogovor', 'termin', 'plaća', 'budžet', 'faktura']
+      phrases: ['klijent', 'poslodavac', 'projekt', 'rok', 'ugovor', 'ponuda', 'račun', 'cijena', 'sastanak', 'isporuka', 'zadatak', 'prioritet', 'dogovor', 'termin', 'plaća', 'budžet', 'faktura'],
+      phrasesEn: ['client', 'employer', 'project', 'deadline', 'contract', 'offer', 'invoice', 'price', 'meeting', 'delivery', 'task', 'priority', 'agreement', 'appointment', 'salary', 'budget']
     },
     doctor: {
       label: 'Liječnik',
+      labelEn: 'Doctor',
       description: 'Sigurniji 1-na-1 profil za pregled: terapija, lijekovi, doze, nalazi i liječničke upute dobivaju dodatnu provjeru.',
+      descriptionEn: 'Safer one-to-one profile for appointments: medication, doses, findings, and medical instructions receive extra review.',
       status: 'Liječnik · pojačana provjera važnih detalja',
+      statusEn: 'Doctor · enhanced review of important details',
       speakerLimit: 2,
       maxAlternatives: 10,
       reviewConfidence: .76,
@@ -181,25 +192,36 @@ async function clearDurableState() {
       vad: { noiseMultiplier: 1.60, bias: .00048, min: .0029, max: .022, hangover: 410 },
       audio: { highPass: 74, presenceHz: 2850, presenceGain: 3.4, compressorThreshold: -42, compressorRatio: 4.4, compressorAttack: .003, compressorRelease: .24, gain: 1.34, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
       phrases: ['liječnik', 'doktor', 'terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'jednom dnevno', 'dva puta dnevno', 'tri puta dnevno', 'recept', 'uputnica', 'nalaz', 'dijagnoza', 'simptomi', 'krvni tlak', 'temperatura', 'alergija', 'antibiotik', 'kontrola', 'pregled', 'krvna slika', 'šećer u krvi'],
-      criticalTerms: ['terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'recept', 'dijagnoza', 'antibiotik', 'alergija', 'krvni tlak', 'šećer u krvi']
+      criticalTerms: ['terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'recept', 'dijagnoza', 'antibiotik', 'alergija', 'krvni tlak', 'šećer u krvi'],
+      phrasesEn: ['doctor', 'medication', 'medicine', 'dose', 'tablet', 'capsule', 'milligram', 'milliliter', 'once a day', 'twice a day', 'three times a day', 'prescription', 'referral', 'test result', 'diagnosis', 'symptoms', 'blood pressure', 'temperature', 'allergy', 'antibiotic', 'checkup', 'blood test', 'blood sugar'],
+      criticalTermsEn: ['medication', 'medicine', 'dose', 'tablet', 'capsule', 'milligram', 'milliliter', 'prescription', 'diagnosis', 'antibiotic', 'allergy', 'blood pressure', 'blood sugar']
     },
     lecture: {
       label: 'Predavanje',
+      labelEn: 'Lecture',
       description: 'Far-field profil za profesora ili predavača koji govori s veće udaljenosti; čuva tiši govor i traži detaljniji prijepis.',
+      descriptionEn: 'Far-field profile for a lecturer speaking from a greater distance; preserves quieter speech and favors a more detailed transcript.',
       status: 'Predavanje · far-field · dominantni predavač',
+      statusEn: 'Lecture · far-field · dominant lecturer',
       speakerLimit: 4,
       maxAlternatives: 10,
       reviewConfidence: .67,
       phraseBoost: 3.2,
       vad: { noiseMultiplier: 1.34, bias: .00032, min: .0021, max: .018, hangover: 500 },
       audio: { highPass: 82, presenceHz: 2600, presenceGain: 4.3, compressorThreshold: -48, compressorRatio: 5.4, compressorAttack: .005, compressorRelease: .30, gain: 1.68, noiseSuppression: false, echoCancellation: true, voiceIsolation: false, processedTrack: false },
-      phrases: ['profesor', 'predavač', 'predavanje', 'ispit', 'kolokvij', 'seminar', 'definicija', 'primjer', 'objašnjenje', 'važno', 'zapamtite', 'poglavlje', 'formula', 'zadataka']
+      phrases: ['profesor', 'predavač', 'predavanje', 'ispit', 'kolokvij', 'seminar', 'definicija', 'primjer', 'objašnjenje', 'važno', 'zapamtite', 'poglavlje', 'formula', 'zadataka'],
+      phrasesEn: ['professor', 'lecturer', 'lecture', 'exam', 'test', 'seminar', 'definition', 'example', 'explanation', 'important', 'remember', 'chapter', 'formula', 'assignment']
     }
   };
 
   // Riječi koje su posebno važne za Clarityjev kontekst pristupačnosti.
   // Ako preglednik podržava SpeechRecognitionPhrase, ove fraze dobivaju dodatni
   // prioritet pri prepoznavanju, ali Clarity i dalje koristi speech engine uređaja/browsera.
+  const CORE_ENGLISH_PHRASES = [
+    'deaf', 'hard of hearing', 'hearing', 'hearing aid', 'cochlear implant', 'accessibility',
+    'caption', 'captions', 'transcript', 'speech to text', 'repeat', 'please speak slowly'
+  ];
+
   const CORE_CROATIAN_PHRASES = [
     'gluh', 'gluha', 'gluhi', 'gluhe', 'gluhima', 'gluhih', 'gluhog', 'gluhom',
     'gluhoća', 'gluhoće', 'gluhoćom', 'nagluha', 'nagluhi', 'nagluhe', 'nagluhima',
@@ -271,6 +293,7 @@ async function clearDurableState() {
     contextTitle: $('contextTitle'),
     contextDescription: $('contextDescription'),
     voiceLanguageSwitcher: $('voiceLanguageSwitcher'),
+    mobileVoiceLanguageSwitcher: $('mobileVoiceLanguageSwitcher'),
     voiceLanguageName: $('voiceLanguageName'),
     largeViewButton: $('largeViewButton'),
     quickMessageButton: $('quickMessageButton'),
@@ -718,6 +741,294 @@ async function clearDurableState() {
       : { code: 'hr-HR', short: 'HR', name: 'Hrvatski' };
   }
 
+  const UI_EN = Object.freeze({
+  "Nedavno": "Recent",
+  "Postavke pristupačnosti": "Accessibility settings",
+  "Povijest ostaje na uređaju": "History stays on this device",
+  "Politika privatnosti": "Privacy Policy",
+  "Pravne informacije": "Legal information",
+  "Aktivni razgovor": "Active conversation",
+  "Razgovor": "Conversation",
+  "Posao": "Work",
+  "Liječnik": "Doctor",
+  "Predavanje": "Lecture",
+  "Razgovori": "Conversations",
+  "Zatvori": "Close",
+  "Live prijepis preko speech servisa tvog uređaja.": "Live transcript using your device speech service.",
+  "Start ostaje aktivan do namjernog pritiska na Kraj; interni restart browsera ne prekida odlomak.": "Start stays active until you intentionally press Stop; an internal browser restart does not end the paragraph.",
+  "Glasan zvuk u blizini": "Loud sound nearby",
+  "Clarity je primijetio nagli porast glasnoće.": "Clarity detected a sudden increase in volume.",
+  "U redu": "OK",
+  "Spremno za razgovor": "Ready for conversation",
+  "Manje napora.": "Less effort.",
+  "Više razgovora.": "More conversation.",
+  "Clarity pretvara hrvatski govor u čitljiv prijepis u stvarnom vremenu za gluhe i nagluhe osobe. Postavi uređaj između sebe i sugovornika i pokreni slušanje.": "Clarity turns English speech into a readable real-time transcript for deaf and hard-of-hearing people. Place the device between you and the other person and start listening.",
+  "Pokreni slušanje": "Start listening",
+  "Prikaži primjer": "Show example",
+  "Prijepisi i povijest spremaju se samo u ovom pregledniku.": "Transcripts and history are stored only in this browser.",
+  "UŽIVO": "LIVE",
+  "Pomoć pri razgovoru": "Conversation assistance",
+  "Za svakodnevni razgovor licem u lice, sastanak ili kratku komunikaciju.": "For everyday face-to-face conversation, meetings, or short communication.",
+  "Jezik": "Language",
+  "Veliki prikaz": "Large view",
+  "Zadnja rečenica preko cijelog ekrana.": "Show the latest sentence full-screen.",
+  "Brza poruka": "Quick message",
+  "Pokaži sugovorniku što ti treba.": "Show the other person what you need.",
+  "Dodaj bilješku": "Add note",
+  "Upiši važan detalj u razgovor.": "Add an important detail to the conversation.",
+  "Vizualna glasnoća": "Visual volume",
+  "Mikrofon miruje": "Microphone idle",
+  "Pauzirano": "Paused",
+  "Što sam propustio?": "What did I miss?",
+  "Postavke": "Settings",
+  "Govornici": "Speakers",
+  "Clarity pokušava razlikovati glasove prema zvučnim značajkama i koristi neutralne oznake Govornik 1, 2, 3… Imena se nikada ne izvlače iz sadržaja govora.": "Clarity attempts to distinguish voices by acoustic characteristics and uses neutral labels Speaker 1, 2, 3… Names are never extracted from spoken content.",
+  "Broj očekivanih govornika ovisi o profilu: Posao i Liječnik očekuju razgovor 1-na-1, Predavanje dopušta predavača i kratke upadice, a Razgovor ostaje otvoren za više ljudi. Clarity namjerno ne pretvara rečenice poput “Ja sam Armin” u ime profila.": "The expected number of speakers depends on the profile: Work and Doctor expect a one-to-one conversation, Lecture allows a lecturer and short interjections, while Conversation remains open to more people. Clarity intentionally never turns statements such as “I am Armin” into a profile name.",
+  "Veličina prijepisa": "Transcript size",
+  "Prilagodi tekst udaljenosti s koje čitaš.": "Adjust text for the distance from which you read.",
+  "Manje": "Smaller",
+  "Veće": "Larger",
+  "Upozorenje na glasan zvuk": "Loud sound alert",
+  "Opcionalno upozorenje samo za dugotrajan, vrlo glasan zvuk izvan govora.": "Optional alert only for prolonged, very loud non-speech sound.",
+  "Vizualno upozorenje": "Visual alert",
+  "Osjetljivost": "Sensitivity",
+  "Važne riječi": "Important words",
+  "Clarity ih ističe kako bi ih bilo teško previdjeti.": "Clarity highlights them so they are hard to miss.",
+  "Dodaj": "Add",
+  "Osobni rječnik": "Personal dictionary",
+  "Upiši točan zapis neobičnog imena ili naziva. Izraz se koristi samo kao kontekst za prepoznavanje gdje preglednik to podržava, npr. Lyllo ili AlphaWave.": "Enter the exact spelling of an unusual name or term. It is used only as recognition context where the browser supports it, for example Lyllo or AlphaWave.",
+  "Prikaz i ponašanje": "Display and behavior",
+  "Jednostavne postavke za različite potrebe.": "Simple settings for different needs.",
+  "Visoki kontrast": "High contrast",
+  "Smanji animacije": "Reduce motion",
+  "Automatski pomak na novi tekst": "Automatically scroll to new text",
+  "Prikaži vrijeme rečenice": "Show sentence time",
+  "Drži ekran uključenim": "Keep screen awake",
+  "Privatnost, način obrade podataka i podaci o aplikaciji.": "Privacy, data processing, and application information.",
+  "Vrati početne postavke": "Restore default settings",
+  "Nedavni razgovor": "Recent conversation",
+  "Ovo je jednostavan pregled zadnjih važnih rečenica, a ne medicinski ili pravni sažetak. Za važne odluke pročitaj cijeli razgovor.": "This is a simple overview of the latest important sentences, not a medical or legal summary. For important decisions, read the full conversation.",
+  "Novi razgovor": "New conversation",
+  "Započni praznu sesiju": "Start an empty session",
+  "Povuci razgovor ulijevo za brisanje.": "Swipe a conversation left to delete it.",
+  "Zadnja rečenica": "Latest sentence",
+  "Pokreni slušanje i zadnja izgovorena rečenica prikazat će se ovdje.": "Start listening and the latest spoken sentence will appear here.",
+  "Clarity · hrvatski prijepis uživo": "Clarity · live English transcript",
+  "Pokaži sugovorniku": "Show the other person",
+  "Ponovite zadnju rečenicu": "Repeat the last sentence",
+  "Govorite sporije": "Speak more slowly",
+  "Gledajte prema mikrofonu": "Face the microphone",
+  "Recite drugim riječima": "Say it another way",
+  "Samo trenutak": "One moment",
+  "Hvala, razumio sam": "Thank you, I understand",
+  "Prikaži": "Show",
+  "Dodirni ili klikni za zatvaranje": "Tap or click to close",
+  "Odustani": "Cancel",
+  "Clarity · pravne informacije": "Clarity · legal information",
+  "Ažurirano: 18. kolovoza 2026.": "Updated: August 18, 2026",
+  "1. Tko upravlja aplikacijom": "1. Who operates the application",
+  "2. Što Clarity sprema": "2. What Clarity stores",
+  "3. Mikrofon i prepoznavanje govora": "3. Microphone and speech recognition",
+  "4. Kolačići, analitika i tehnički zapisi": "4. Cookies, analytics, and technical logs",
+  "5. Svrha i pravna osnova": "5. Purpose and legal basis",
+  "6. Brisanje i prava korisnika": "6. Deletion and user rights",
+  "7. Važna napomena": "7. Important notice",
+  "U ovoj verziji prijepisi razgovora, spremljene sesije, postavke pristupačnosti, važne riječi i osobni rječnik spremaju se lokalno u pohranu preglednika na uređaju korisnika. Clarity nema vlastitu bazu podataka u koju šalje i trajno sprema te prijepise.": "In this version, conversation transcripts, saved sessions, accessibility settings, important words, and the personal dictionary are stored locally in the browser on the user’s device. Clarity does not have its own database to which it sends and permanently stores these transcripts.",
+  "Podaci ostaju u pregledniku dok ih korisnik ne obriše u aplikaciji, ne očisti podatke preglednika ili ne ukloni lokalnu pohranu stranice.": "Data remains in the browser until the user deletes it in the application, clears browser data, or removes the site’s local storage.",
+  "Clarity traži pristup mikrofonu samo kada korisnik pokrene slušanje. Aplikacija ne sprema trajne zvučne snimke razgovora. Live način rada koristi mikrofon samo za trenutni prijepis i lokalni indikator zvuka.": "Clarity requests microphone access only when the user starts listening. The application does not store permanent audio recordings of conversations. Live mode uses the microphone only for the current transcript and local sound indicator.",
+  "Ova verzija Clarityja ne postavlja vlastite marketinške kolačiće i ne sadrži ugrađenu analitiku za praćenje korisnika. Ako se aplikaciji pristupa preko internetskog hostinga, pružatelj hostinga može obrađivati uobičajene tehničke zapise poput IP adrese, vremena zahtjeva i podataka preglednika radi sigurnosti i isporuke usluge.": "This version of Clarity does not set its own marketing cookies and does not include built-in user-tracking analytics. If the application is accessed through internet hosting, the hosting provider may process standard technical logs such as IP address, request time, and browser information for security and service delivery.",
+  "Lokalna obrada služi isključivo za funkcije koje korisnik traži: pretvaranje govora u tekst, spremanje razgovora, prilagodbu prikaza i primjenu osobnog rječnika. Dopuštenje za mikrofon daje i može povući sam korisnik kroz postavke preglednika.": "Local processing is used only for functions requested by the user: converting speech to text, saving conversations, adjusting the display, and applying the personal dictionary. The user grants and can revoke microphone permission through browser settings.",
+  "Korisnik može obrisati pojedine razgovore ili podatke stranice u pregledniku. Budući da se glavni sadržaj razgovora u ovoj verziji čuva lokalno, Clarity u pravilu nema udaljenu kopiju koju bi mogao vratiti nakon brisanja. Za podatke koje eventualno obrađuju preglednik ili pružatelj hostinga primjenjuju se njihove vlastite procedure i politike.": "The user can delete individual conversations or site data in the browser. Because the main conversation content in this version is stored locally, Clarity generally has no remote copy that could be restored after deletion. Data that may be processed by the browser or hosting provider is subject to their own procedures and policies.",
+  "Clarity je pomagalo za pristupačniju komunikaciju. Automatski prijepis može sadržavati pogreške, osobito kod imena, brojeva, doza, stručnih izraza, buke ili istodobnog govora. Kritične informacije uvijek treba potvrditi s osobom koja ih je izgovorila.": "Clarity is an aid for more accessible communication. Automatic transcripts may contain errors, especially with names, numbers, doses, technical terms, noise, or simultaneous speech. Always confirm critical information with the person who said it.",
+  "Naziv aplikacije": "Application name",
+  "Razvoj projekta": "Project development",
+  "Javna aplikacija": "Public application",
+  "Portfolio autora": "Author portfolio",
+  "Projekt": "Project",
+  "Namjena": "Purpose",
+  "Pristupačniji razgovori i hrvatski prijepis govora u stvarnom vremenu": "More accessible conversations and real-time English speech transcription",
+  "Odgovornost i točnost prijepisa": "Responsibility and transcript accuracy",
+  "Clarity je pomoćni alat i ne jamči potpunu, neprekinutu ili bezuvjetno točnu transkripciju. Rezultati ovise o mikrofonu, buci, izgovoru, pregledniku, mrežnoj vezi i vanjskom mehanizmu prepoznavanja govora.": "Clarity is an assistive tool and does not guarantee complete, uninterrupted, or perfectly accurate transcription. Results depend on the microphone, noise, pronunciation, browser, network connection, and external speech-recognition mechanism.",
+  "Clarity nije zamjena za ovlaštenog tumača, liječničku procjenu, pravni savjet, hitne službe ili drugi profesionalni postupak. Kod odluka koje mogu imati zdravstvene, pravne, financijske ili sigurnosne posljedice korisnik treba provjeriti izvorne informacije.": "Clarity is not a substitute for an authorized interpreter, medical assessment, legal advice, emergency services, or another professional process. For decisions with health, legal, financial, or safety consequences, the user should verify the original information.",
+  "Dostupnost usluge": "Service availability",
+  "Aplikacija se može mijenjati, privremeno biti nedostupna ili se pojedine funkcije mogu razlikovati među preglednicima. U mjeri dopuštenoj primjenjivim propisima, autor ne odgovara za štetu nastalu isključivim oslanjanjem na netočan automatski prijepis ili nedostupnost funkcije koju pruža preglednik odnosno treća strana.": "The application may change, be temporarily unavailable, or have features that differ between browsers. To the extent permitted by applicable law, the author is not liable for damage caused solely by reliance on an inaccurate automatic transcript or the unavailability of a function provided by the browser or a third party.",
+  "Autorska prava i licenca": "Copyright and license",
+  "Naziv, dizajn, tekstovi i izvorni programski dijelovi Clarityja zaštićeni su primjenjivim pravilima autorskog prava, osim dijelova za koje vrijede zasebne licence trećih strana.": "The Clarity name, design, texts, and original software components are protected by applicable copyright rules, except for components covered by separate third-party licenses.",
+  "Podaci koje treba dopuniti prije komercijalne objave": "Information to complete before commercial release",
+  "Ako Clarity bude javno pružan kao usluga obrta ili trgovačkog društva, Impressum treba dopuniti punim nazivom pružatelja, sjedištem/adresom, izravnim kontaktom, podacima o registru i poreznim podacima kada su primjenjivi.": "If Clarity is publicly provided as a service by a business or company, the Impressum should be completed with the provider’s full legal name, registered office/address, direct contact details, registry information, and tax information where applicable.",
+  "Povijest razgovora": "Conversation history",
+  "Spremljeni razgovori": "Saved conversations",
+  "Verzija aplikacije": "Application version",
+  "Način razgovora": "Conversation mode",
+  "Ukloni zadnju rečenicu": "Remove the latest sentence",
+  "Kopiraj prijepis": "Copy transcript",
+  "Preuzmi prijepis": "Download transcript",
+  "Obriši aktivni prijepis": "Delete active transcript",
+  "Sakrij ovu obavijest": "Hide this notice",
+  "Sakrij obavijest": "Hide notice",
+  "Jezik prepoznavanja govora": "Language and speech recognition",
+  "Pokreni novi odlomak": "Start a new paragraph",
+  "Zatvori panel": "Close panel",
+  "Sažetak razgovora": "Conversation summary",
+  "Veliki prikaz prijepisa": "Large transcript view",
+  "Zatvori veliki prikaz": "Close large view",
+  "Brze poruke": "Quick messages",
+  "Poruka sugovorniku": "Message to the other person",
+  "Zatvori poruku": "Close message",
+  "Nova važna riječ": "New important word",
+  "Novi izraz": "New term",
+  "Dodaj riječ…": "Add word…",
+  "Primjer: Lyllo ili AlphaWave": "Example: Lyllo or AlphaWave",
+  "Napiši vlastitu poruku…": "Write your own message…",
+  "Upiši važan detalj koji želiš sačuvati…": "Enter an important detail you want to save…",
+  "Molim vas, ponovite zadnju rečenicu.": "Please repeat the last sentence.",
+  "Molim vas, govorite malo sporije.": "Please speak a little more slowly.",
+  "Molim vas, gledajte prema mikrofonu dok govorite.": "Please face the microphone while speaking.",
+  "Nisam razumio. Možete li to reći drugim riječima?": "I did not understand. Could you say it another way?",
+  "Samo trenutak, čitam prijepis.": "One moment, I am reading the transcript.",
+  "Hvala, sada sam razumio.": "Thank you, I understand now.",
+  "Važna riječ je označena u prijepisu.": "An important word was highlighted in the transcript.",
+  "Razgovor je obrisan iz povijesti.": "The conversation was deleted from history.",
+  "Rečenica je spremljena.": "The sentence was saved.",
+  "Rečenica je uklonjena.": "The sentence was removed.",
+  "Otvoren je novi razgovor.": "A new conversation was opened.",
+  "Zadnja stavka je uklonjena.": "The latest item was removed.",
+  "Aktivni prijepis je obrisan.": "The active transcript was deleted.",
+  "Prijepis je kopiran.": "The transcript was copied.",
+  "Prijepis je preuzet.": "The transcript was downloaded.",
+  "Bilješka je dodana.": "The note was added.",
+  "Postavke su vraćene.": "Settings were restored.",
+  "Dopusti pristup mikrofonu": "Allow microphone access",
+  "Diktiranje nije dostupno": "Dictation is unavailable",
+  "Live diktiranje nije dostupno": "Live dictation is unavailable",
+  "Mikrofon nije pronađen ili ga koristi druga aplikacija.": "The microphone was not found or is being used by another application.",
+  "Preglednik nema dopuštenje za mikrofon. U postavkama ove stranice dopusti pristup mikrofonu.": "The browser does not have microphone permission. Allow microphone access in this site’s settings.",
+  "Usluga diktiranja nije dopuštena u pregledniku.": "The dictation service is not allowed in the browser.",
+  "Diktiranje je privremeno izgubilo mrežnu vezu. Clarity će pokušati ponovno.": "Dictation temporarily lost its network connection. Clarity will try again.",
+  "Ponovno pokrećem diktiranje…": "Restarting dictation…",
+  "Ponovno povezujem live titlove…": "Reconnecting live captions…",
+  "Nastavljam bez kontekstualnog rječnika…": "Continuing without the contextual dictionary…",
+  "Odlomak je spremljen · pritisni Start za novi odlomak": "Paragraph saved · press Start for a new paragraph",
+  "Pritisni Start za novi odlomak": "Press Start for a new paragraph",
+  "Speech servis dovršava zadnju riječ i sprema odlomak…": "The speech service is finishing the last word and saving the paragraph…",
+  "Mikrofon uređaja · native speech": "Device microphone · native speech",
+  "Čekam nastavak govora": "Waiting for speech to continue",
+  "Slušam…": "Listening…",
+  "Čujem govor — pokrećem diktiranje…": "Speech detected — starting dictation…",
+  "Veza je vraćena — obnavljam live diktiranje…": "Connection restored — resuming live dictation…",
+  "Nema internetske veze. Speech servis preglednika može privremeno stati dok se veza ne vrati.": "There is no internet connection. The browser speech service may pause temporarily until the connection returns.",
+  "Diktiranje nije podržano": "Dictation is not supported",
+  "Clarity se nije mogao potpuno pokrenuti. Osvježi stranicu ili ponovno pokreni aplikaciju.": "Clarity could not start completely. Refresh the page or restart the application.",
+  "Clarity je projekt koji razvija Armin Lišić. Javna verzija dostupna je na": "Clarity is a project developed by Armin Lišić. The public version is available at",
+  ", a za pitanja o privatnosti i aplikaciji dostupan je javni repozitorij": ", and for privacy or application questions the public repository",
+  "na GitHubu. Ako se Clarity distribuira preko obrta, tvrtke ili druge organizacije, podaci te pravne osobe trebaju se dodati u Impressum prije javne komercijalne uporabe.": "is available on GitHub. If Clarity is distributed through a business, company, or other organization, that legal entity’s information should be added to the Impressum before public commercial use.",
+  "Clarity ne koristi vlastiti AI/LLM/Whisper model niti vlastiti speech-to-text server. U native aplikaciji koristi sistemski speech-recognition servis operacijskog sustava (Android, Apple ili Windows) s jezikom": "Clarity does not use its own AI/LLM/Whisper model or its own speech-to-text server. In the native application it uses the operating system speech-recognition service (Android, Apple, or Windows) with the language selected in Clarity",
+  "; obična web verzija koristi Web Speech samo kao kompatibilni fallback kada je dostupan.": "; the regular web version uses Web Speech only as a compatible fallback when available.",
+  "Clarity se daje na korištenje prema vlasničkoj evaluacijskoj licenci iz datoteke": "Clarity is provided under the proprietary evaluation license in the file",
+  ". Dopušteno je nekomercijalno pokretanje, testiranje, provjera pristupačnosti i pregled načina rada. Prodaja, monetizacija, redistribucija, prepakiranje, objava izmijenjenih kopija ili korištenje zaštićenih dijelova u drugom komercijalnom proizvodu zahtijeva prethodno pisano dopuštenje nositelja autorskog prava.": ". Non-commercial running, testing, accessibility evaluation, and inspection of how it works are permitted. Sale, monetization, redistribution, repackaging, publication of modified copies, or use of protected components in another commercial product requires prior written permission from the copyright holder."
+});
+  const UI_HR = Object.freeze(Object.fromEntries(Object.entries(UI_EN).map(([hr, en]) => [en, hr])));
+  const STATIC_UI_SKIP_IDS = new Set(['sessionList', 'mobileSessionList', 'speakerProfilesList', 'summaryList', 'transcriptStream', 'interimText', 'largeViewText', 'messageDisplayText']);
+
+  function uiIsEnglish() {
+    return activeSpeechLanguage() === 'en-US';
+  }
+
+  function uiLocale() {
+    return uiIsEnglish() ? 'en-US' : 'hr-HR';
+  }
+
+  function modeUi(data, field) {
+    if (!data) return '';
+    return uiIsEnglish() ? (data[`${field}En`] || data[field] || '') : (data[field] || '');
+  }
+
+  function modeLabelFor(mode) {
+    return modeUi(modeData[mode] || modeData.social, 'label');
+  }
+
+  function speakerDisplayName(idOrLabel, fallbackId = 1) {
+    const raw = String(idOrLabel || '').trim();
+    const match = raw.match(/^(?:Govornik|Speaker)\s+(\d+)$/iu);
+    const id = match ? Number(match[1]) : Number(fallbackId) || 1;
+    if (!raw || match) return uiIsEnglish() ? `Speaker ${id}` : `Govornik ${id}`;
+    return raw;
+  }
+
+  function localizeRuntimeText(value) {
+    let text = String(value ?? '');
+    if (!text) return text;
+    const exact = uiIsEnglish() ? UI_EN[text] : UI_HR[text];
+    if (exact) return exact;
+    if (uiIsEnglish()) {
+      return text
+        .replace(/^Govornik (\d+)/u, 'Speaker $1')
+        .replace(/\bRazgovor\b/gu, 'Conversation')
+        .replace(/\bPosao\b/gu, 'Work')
+        .replace(/\bLiječnik\b/gu, 'Doctor')
+        .replace(/\bPredavanje\b/gu, 'Lecture')
+        .replace(/Uravnotežen profil · više govornika/gu, 'Balanced profile · multiple speakers')
+        .replace(/Posao · 1-na-1 · dva glasovna profila/gu, 'Work · one-to-one · two voice profiles')
+        .replace(/Liječnik · pojačana provjera važnih detalja/gu, 'Doctor · enhanced review of important details')
+        .replace(/Predavanje · far-field · dominantni predavač/gu, 'Lecture · far-field · dominant lecturer')
+        .replace(/mijenjam Voice jezik/gu, 'switching language')
+        .replace(/sistemski speech servis/gu, 'system speech service')
+        .replace(/web speech/gu, 'web speech');
+    }
+    return text
+      .replace(/^Speaker (\d+)/u, 'Govornik $1')
+      .replace(/Balanced profile · multiple speakers/gu, 'Uravnotežen profil · više govornika')
+      .replace(/Work · one-to-one · two voice profiles/gu, 'Posao · 1-na-1 · dva glasovna profila')
+      .replace(/Doctor · enhanced review of important details/gu, 'Liječnik · pojačana provjera važnih detalja')
+      .replace(/Lecture · far-field · dominant lecturer/gu, 'Predavanje · far-field · dominantni predavač');
+  }
+
+  function translateStaticTree(root) {
+    if (!root) return;
+    const shouldSkip = node => {
+      const element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+      return Boolean(element?.closest?.([...STATIC_UI_SKIP_IDS].map(id => `#${id}`).join(',')));
+    };
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const node of nodes) {
+      if (shouldSkip(node)) continue;
+      const raw = node.nodeValue || '';
+      const trimmed = raw.trim();
+      if (!trimmed) continue;
+      const localized = localizeRuntimeText(trimmed);
+      if (localized !== trimmed) node.nodeValue = raw.replace(trimmed, localized);
+    }
+    const elements = [root, ...root.querySelectorAll?.('*') || []];
+    for (const element of elements) {
+      if (!(element instanceof Element) || shouldSkip(element)) continue;
+      for (const attribute of ['aria-label', 'title', 'placeholder', 'data-message']) {
+        if (!element.hasAttribute(attribute)) continue;
+        const value = element.getAttribute(attribute);
+        const localized = localizeRuntimeText(value);
+        if (localized !== value) element.setAttribute(attribute, localized);
+      }
+    }
+  }
+
+  function applyInterfaceLanguage() {
+    document.documentElement.lang = uiIsEnglish() ? 'en' : 'hr';
+    document.title = uiIsEnglish() ? 'Clarity — live speech-to-text | Codarox' : 'Clarity — hrvatski govor u tekst uživo | Codarox';
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.content = uiIsEnglish()
+      ? 'Clarity is a web application for real-time English speech transcription and more accessible communication.'
+      : 'Clarity je web aplikacija za prijepis hrvatskog govora u stvarnom vremenu, namijenjena pristupačnijoj komunikaciji gluhih i nagluhih osoba.';
+    const roots = [
+      document.querySelector('.session-rail'), document.querySelector('.workspace-header'), dom.statusBanner,
+      dom.engineNotice, dom.loudSoundAlert, dom.emptyTranscript, document.querySelector('.context-panel'),
+      document.querySelector('.control-dock'), dom.settingsPanel, dom.summaryPanel, dom.mobileSessionsPanel,
+      dom.largeView, dom.quickMessageModal, dom.messageDisplay, dom.noteModal, dom.privacyPolicyModal, dom.impressumModal
+    ];
+    roots.filter(Boolean).forEach(translateStaticTree);
+    if (dom.voiceLanguageName) dom.voiceLanguageName.textContent = uiIsEnglish() ? 'English' : 'Hrvatski';
+  }
+
   function normalizeRecognizedText(value, finalize = true) {
     let text = String(value || '').normalize('NFC').replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
     if (!text) return '';
@@ -930,7 +1241,7 @@ async function clearDurableState() {
 
   function speakerName(number) {
     const id = clamp(Math.round(Number(number) || 1), 1, MAX_AUTO_SPEAKERS);
-    return `Govornik ${id}`;
+    return uiIsEnglish() ? `Speaker ${id}` : `Govornik ${id}`;
   }
 
   function createSpeakerProfile(id, feature = null, label = '') {
@@ -1110,8 +1421,11 @@ async function clearDurableState() {
 
   function modePhraseList() {
     const data = activeModeProfile();
-    const canonicalTerms = SYSTEM_CANONICAL_TERMS.map(entry => entry.canonical);
-    const values = [...CORE_CROATIAN_PHRASES, ...(data.phrases || []), ...canonicalTerms, ...(preferences.vocabulary || [])];
+    const english = activeSpeechLanguage() === 'en-US';
+    const canonicalTerms = english ? [] : SYSTEM_CANONICAL_TERMS.map(entry => entry.canonical);
+    const core = english ? CORE_ENGLISH_PHRASES : CORE_CROATIAN_PHRASES;
+    const modePhrases = english ? (data.phrasesEn || []) : (data.phrases || []);
+    const values = [...core, ...modePhrases, ...canonicalTerms, ...(preferences.vocabulary || [])];
     return [...new Set(values.map(value => String(value || '').normalize('NFC').trim()).filter(Boolean))].slice(0, 120);
   }
 
@@ -1124,7 +1438,8 @@ async function clearDurableState() {
   function modeAlternativeBonus(text) {
     const data = activeModeProfile();
     let hits = 0;
-    for (const phrase of data.phrases || []) {
+    const modePhrases = activeSpeechLanguage() === 'en-US' ? (data.phrasesEn || []) : (data.phrases || []);
+    for (const phrase of modePhrases) {
       if (phraseOccurs(text, phrase)) hits += phrase.includes(' ') ? 1.35 : 1;
     }
     let bonus = Math.min(.18, hits * .035);
@@ -1142,12 +1457,12 @@ async function clearDurableState() {
   }
 
   function applyContextualBias(instance) {
-    if (activeSpeechLanguage() !== 'hr-HR') return false;
     if (contextualBiasDisabled || !instance || !('phrases' in instance) || typeof window.SpeechRecognitionPhrase !== 'function') return false;
     try {
       const data = activeModeProfile();
       const phrases = modePhraseList().map(phrase => {
-        const isCore = CORE_CROATIAN_PHRASES.some(core => normalizePhraseKey(core) === normalizePhraseKey(phrase));
+        const activeCore = activeSpeechLanguage() === 'en-US' ? CORE_ENGLISH_PHRASES : CORE_CROATIAN_PHRASES;
+        const isCore = activeCore.some(core => normalizePhraseKey(core) === normalizePhraseKey(phrase));
         const boost = isCore ? Math.max(6.5, data.phraseBoost || 2) : (data.phraseBoost || 2);
         return new window.SpeechRecognitionPhrase(phrase, clamp(boost, 0, 10));
       });
@@ -1167,7 +1482,8 @@ async function clearDurableState() {
     if (preferences.mode !== 'doctor') return false;
     const data = modeData.doctor;
     if (/\b\d+(?:[.,]\d+)?\s*(?:mg|ml|g|kg|mmhg|°?c)\b/iu.test(text)) return true;
-    return (data.criticalTerms || []).some(term => phraseOccurs(text, term));
+    const criticalTerms = activeSpeechLanguage() === 'en-US' ? (data.criticalTermsEn || []) : (data.criticalTerms || []);
+    return criticalTerms.some(term => phraseOccurs(text, term));
   }
 
   function segmentReviewThreshold(segment) {
@@ -1183,7 +1499,11 @@ async function clearDurableState() {
     const evidence = speakerRoleEvidence.get(speakerId) || { doctor: 0, lectureWords: 0, lectureTurns: 0 };
 
     if (current.mode === 'doctor') {
-      const clinicianPatterns = [
+      const clinicianPatterns = activeSpeechLanguage() === 'en-US' ? [
+        /\b(?:prescribe|recommend|take|medication|medicine|dose|result|checkup|referral|prescription|diagnosis|appointment|come back|follow up)\b/iu,
+        /\b(?:once|twice|three times)\s+(?:a|per)\s+day\b/iu,
+        /\b\d+(?:[.,]\d+)?\s*(?:mg|ml|mmhg)\b/iu
+      ] : [
         /\b(?:propisat|propisujem|preporučujem|uzimajte|uzmi|terapija|doza|nalaz|pregled|kontrola|uputnica|recept|dijagnoza|trebate|dođite|javite se|izmjerit ćemo|poslušat ću)\b/iu,
         /\b(?:jednom|dva|tri)\s+puta\s+dnevno\b/iu,
         /\b\d+(?:[.,]\d+)?\s*(?:mg|ml|mmhg)\b/iu
@@ -1693,11 +2013,11 @@ async function clearDurableState() {
   }
 
   function formatTime(timestamp) {
-    return new Intl.DateTimeFormat('hr-HR', { hour: '2-digit', minute: '2-digit' }).format(timestamp);
+    return new Intl.DateTimeFormat(uiLocale(), { hour: '2-digit', minute: '2-digit' }).format(timestamp);
   }
 
   function formatDate(timestamp) {
-    return new Intl.DateTimeFormat('hr-HR', { day: '2-digit', month: 'short' }).format(timestamp);
+    return new Intl.DateTimeFormat(uiLocale(), { day: '2-digit', month: 'short' }).format(timestamp);
   }
 
   function formatElapsed(seconds) {
@@ -1756,7 +2076,7 @@ async function clearDurableState() {
   function getSessionTitle(session) {
     const first = session.segments.find(segment => segment.type === 'speech')?.text || session.segments[0]?.text;
     if (first) return first.length > 37 ? `${first.slice(0, 37)}…` : first;
-    return `${modeData[session.mode]?.label || 'Razgovor'} · ${formatDate(session.createdAt)}`;
+    return `${modeLabelFor(session.mode)} · ${formatDate(session.createdAt)}`;
   }
 
   function renderSessions() {
@@ -1771,7 +2091,7 @@ async function clearDurableState() {
     if (!sessions.length) {
       const p = document.createElement('p');
       p.className = 'empty-history';
-      p.textContent = 'Još nema spremljenih razgovora.';
+      p.textContent = uiIsEnglish() ? 'No saved conversations yet.' : 'Još nema spremljenih razgovora.';
       container.append(p);
       return;
     }
@@ -1784,24 +2104,24 @@ async function clearDurableState() {
       const deleteButton = document.createElement('button');
       deleteButton.type = 'button';
       deleteButton.className = 'session-delete-action';
-      deleteButton.setAttribute('aria-label', `Obriši razgovor: ${getSessionTitle(session)}`);
-      deleteButton.title = 'Obriši razgovor';
+      deleteButton.setAttribute('aria-label', `${uiIsEnglish() ? 'Delete conversation' : 'Obriši razgovor'}: ${getSessionTitle(session)}`);
+      deleteButton.title = uiIsEnglish() ? 'Delete conversation' : 'Obriši razgovor';
       const deleteLabel = document.createElement('span');
-      deleteLabel.textContent = 'Obriši';
+      deleteLabel.textContent = uiIsEnglish() ? 'Delete' : 'Obriši';
       deleteButton.append(createSvg('i-trash'), deleteLabel);
 
       const openButton = document.createElement('button');
       openButton.type = 'button';
       openButton.className = 'session-open-button';
       openButton.classList.toggle('active', session.id === current.id);
-      openButton.title = mobile ? 'Povuci ulijevo za brisanje' : 'Otvori razgovor';
+      openButton.title = mobile ? (uiIsEnglish() ? 'Swipe left to delete' : 'Povuci ulijevo za brisanje') : (uiIsEnglish() ? 'Open conversation' : 'Otvori razgovor');
 
       if (mobile) {
         const textWrap = document.createElement('span');
         const strong = document.createElement('strong');
         const small = document.createElement('small');
         strong.textContent = getSessionTitle(session);
-        small.textContent = `${modeData[session.mode]?.label || 'Razgovor'} · ${formatDate(session.createdAt)}`;
+        small.textContent = `${modeLabelFor(session.mode)} · ${formatDate(session.createdAt)}`;
         textWrap.append(strong, small);
         openButton.append(textWrap, createSvg('i-chevron'));
       } else {
@@ -1810,7 +2130,7 @@ async function clearDurableState() {
         title.textContent = getSessionTitle(session);
         const meta = document.createElement('span');
         meta.className = 'session-meta';
-        meta.textContent = `${modeData[session.mode]?.label || 'Razgovor'} · ${formatDate(session.createdAt)}`;
+        meta.textContent = `${modeLabelFor(session.mode)} · ${formatDate(session.createdAt)}`;
         openButton.append(title, meta);
       }
 
@@ -1906,7 +2226,10 @@ async function clearDurableState() {
     const session = sessions.find(item => item.id === id);
     if (!session) return;
     const title = getSessionTitle(session);
-    if (!window.confirm(`Obrisati razgovor „${title}“ iz povijesti? Ovu radnju nije moguće poništiti.`)) {
+    const deletePrompt = uiIsEnglish()
+      ? `Delete “${title}” from history? This action cannot be undone.`
+      : `Obrisati razgovor „${title}“ iz povijesti? Ovu radnju nije moguće poništiti.`;
+    if (!window.confirm(deletePrompt)) {
       const row = [...document.querySelectorAll('.session-swipe-row')].find(item => item.dataset.sessionId === id);
       closeSwipeRow(row);
       return;
@@ -2032,10 +2355,10 @@ async function clearDurableState() {
     reviewNote.textContent = '';
     if (segment.provisional && segment.type === 'speech') {
       reviewNote.hidden = false;
-      reviewNote.textContent = 'Privremeni prijepis…';
+      reviewNote.textContent = uiIsEnglish() ? 'Temporary transcript…' : 'Privremeni prijepis…';
     } else if (current.mode === 'doctor' && isDoctorCriticalText(segment.text) && segment.confidence < segmentReviewThreshold(segment)) {
       reviewNote.hidden = false;
-      reviewNote.textContent = 'Provjeri važan medicinski detalj.';
+      reviewNote.textContent = uiIsEnglish() ? 'Verify this important medical detail.' : 'Provjeri važan medicinski detalj.';
     }
 
     const suggestion = article.querySelector('.ai-suggestion-note');
@@ -2214,9 +2537,9 @@ async function clearDurableState() {
 
   function renderMode() {
     const data = modeData[preferences.mode];
-    dom.activeModeLabel.textContent = data.label;
-    dom.contextTitle.textContent = data.label;
-    dom.contextDescription.textContent = data.description;
+    dom.activeModeLabel.textContent = modeUi(data, 'label');
+    dom.contextTitle.textContent = modeUi(data, 'label');
+    dom.contextDescription.textContent = modeUi(data, 'description');
     dom.modeSwitcher.querySelectorAll('button').forEach(button => {
       const active = button.dataset.mode === preferences.mode;
       button.classList.toggle('active', active);
@@ -2227,17 +2550,19 @@ async function clearDurableState() {
 
     if (!shouldListen && !isListening) {
       const language = activeSpeechLanguageMeta();
-      dom.dockSubstatus.textContent = `${language.name} · ${language.code} · ${data.status}`;
+      dom.dockSubstatus.textContent = `${language.name} · ${language.code} · ${modeUi(data, 'status')}`;
     }
   }
 
   function renderSpeechLanguage() {
     const language = activeSpeechLanguageMeta();
     if (dom.voiceLanguageName) dom.voiceLanguageName.textContent = language.name;
-    dom.voiceLanguageSwitcher?.querySelectorAll('button[data-speech-language]').forEach(button => {
-      const active = button.dataset.speechLanguage === language.code;
-      button.classList.toggle('active', active);
-      button.setAttribute('aria-checked', String(active));
+    [dom.voiceLanguageSwitcher, dom.mobileVoiceLanguageSwitcher].filter(Boolean).forEach(switcher => {
+      switcher.querySelectorAll('button[data-speech-language]').forEach(button => {
+        const active = button.dataset.speechLanguage === language.code;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-checked', String(active));
+      });
     });
   }
 
@@ -2249,12 +2574,16 @@ async function clearDurableState() {
     browserOnDeviceRecognition = false;
     savePreferences();
     renderSpeechLanguage();
+    renderAll();
+    applyInterfaceLanguage();
 
     const meta = activeSpeechLanguageMeta();
     if (shouldListen || isListening) {
-      softRestartRecognition(`${meta.name} · ${meta.code} · mijenjam Voice jezik…`, 180);
+      softRestartRecognition(uiIsEnglish()
+        ? `${meta.name} · ${meta.code} · switching language…`
+        : `${meta.name} · ${meta.code} · mijenjam jezik…`, 180);
     } else {
-      updateStatus('paused', `${meta.name} · ${meta.code} · ${activeModeProfile().status}`);
+      updateStatus('paused', `${meta.name} · ${meta.code} · ${modeUi(activeModeProfile(), 'status')}`);
     }
   }
 
@@ -2266,7 +2595,7 @@ async function clearDurableState() {
     if (!profiles.length) {
       const empty = document.createElement('p');
       empty.className = 'speaker-profile-empty';
-      empty.textContent = 'Govornici će se pojaviti automatski čim razgovor započne.';
+      empty.textContent = uiIsEnglish() ? 'Speakers will appear automatically when the conversation starts.' : 'Govornici će se pojaviti automatski čim razgovor započne.';
       dom.speakerProfilesList.append(empty);
       return;
     }
@@ -2279,14 +2608,14 @@ async function clearDurableState() {
       dot.className = 'speaker-dot';
       const info = document.createElement('div');
       const name = document.createElement('strong');
-      name.textContent = profile.label;
+      name.textContent = speakerDisplayName(profile.label, profile.id);
       const detail = document.createElement('span');
       if (current.mode === 'doctor' && profile.id === doctorSpeakerId) {
-        detail.textContent = `Govornik ${profile.id} · vjerojatno liječnik · prioritetan sadržaj`;
+        detail.textContent = uiIsEnglish() ? `Speaker ${profile.id} · likely clinician · priority content` : `Govornik ${profile.id} · vjerojatno liječnik · prioritetan sadržaj`;
       } else if (current.mode === 'lecture' && profile.id === lectureSpeakerId) {
-        detail.textContent = `Govornik ${profile.id} · dominantni predavač`;
+        detail.textContent = uiIsEnglish() ? `Speaker ${profile.id} · dominant lecturer` : `Govornik ${profile.id} · dominantni predavač`;
       } else {
-        detail.textContent = `Govornik ${profile.id} · glasovni profil`;
+        detail.textContent = uiIsEnglish() ? `Speaker ${profile.id} · voice profile` : `Govornik ${profile.id} · glasovni profil`;
       }
       info.append(name, detail);
       row.append(dot, info);
@@ -2331,7 +2660,7 @@ async function clearDurableState() {
       chip.append(document.createTextNode(word));
       const remove = document.createElement('button');
       remove.type = 'button';
-      remove.setAttribute('aria-label', `Ukloni ${word}`);
+      remove.setAttribute('aria-label', `${uiIsEnglish() ? 'Remove' : 'Ukloni'} ${word}`);
       remove.textContent = '×';
       remove.addEventListener('click', () => onRemove(word));
       chip.append(remove);
@@ -2373,24 +2702,25 @@ async function clearDurableState() {
     dom.statusDot.classList.toggle('error', status === 'error');
     dom.recordButton.classList.toggle('active', userCaptureActive);
     dom.recordButton.disabled = finishing;
-    dom.recordButton.setAttribute('aria-label', userCaptureActive ? 'Završi ovaj odlomak' : finishing ? 'Spremam odlomak' : 'Pokreni novi odlomak');
-    const recordLabel = userCaptureActive ? 'Kraj' : finishing ? 'Spremam' : 'Start';
+    dom.recordButton.setAttribute('aria-label', userCaptureActive
+      ? (uiIsEnglish() ? 'End this paragraph' : 'Završi ovaj odlomak')
+      : finishing ? (uiIsEnglish() ? 'Saving paragraph' : 'Spremam odlomak')
+      : (uiIsEnglish() ? 'Start a new paragraph' : 'Pokreni novi odlomak'));
+    const recordLabel = userCaptureActive ? (uiIsEnglish() ? 'Stop' : 'Kraj') : finishing ? (uiIsEnglish() ? 'Saving' : 'Spremam') : 'Start';
     dom.recordButton.innerHTML = `<svg><use href="#${userCaptureActive || finishing ? 'i-stop' : 'i-mic'}"/></svg><span>${recordLabel}</span>`;
 
-    const statusText = {
-      listening: 'Slušam',
-      preparing: 'Pripremam mikrofon',
-      finishing: 'Završavam…',
-      paused: 'Pauzirano',
-      error: 'Prekinuto'
-    }[status] || 'Pauzirano';
+    const statusText = uiIsEnglish() ? ({
+      listening: 'Listening', preparing: 'Preparing microphone', finishing: 'Finishing…', paused: 'Paused', error: 'Stopped'
+    }[status] || 'Paused') : ({
+      listening: 'Slušam', preparing: 'Pripremam mikrofon', finishing: 'Završavam…', paused: 'Pauzirano', error: 'Prekinuto'
+    }[status] || 'Pauzirano');
     dom.dockStatus.textContent = statusText;
     const language = activeSpeechLanguageMeta();
-    dom.dockSubstatus.textContent = message || `${language.name} · ${language.code} · ${activeModeProfile().status}`;
+    dom.dockSubstatus.textContent = localizeRuntimeText(message || `${language.name} · ${language.code} · ${modeUi(activeModeProfile(), 'status')}`);
   }
 
   function showStatusBanner(message) {
-    dom.statusBannerText.textContent = message;
+    dom.statusBannerText.textContent = localizeRuntimeText(message);
     dom.statusBanner.hidden = false;
   }
 
@@ -2458,7 +2788,10 @@ async function clearDurableState() {
       if (shouldListen && !recognition) createAndStartRecognition();
     }, Math.max(60, delay));
     if (message) updateStatus('preparing', message);
-    else updateStatus('listening', `Hrvatski · ${SPEECH_BACKEND === 'web' ? 'web speech' : 'sistemski speech servis'}`);
+    else {
+      const language = activeSpeechLanguageMeta();
+      updateStatus('listening', `${language.name} · ${SPEECH_BACKEND === 'web' ? 'web speech' : (uiIsEnglish() ? 'system speech service' : 'sistemski speech servis')}`);
+    }
   }
 
   function softRestartRecognition(message = 'Osvježavam slušanje…', delay = RECOGNITION_RECOVERY_DELAY_MS) {
@@ -3518,7 +3851,7 @@ async function clearDurableState() {
 
   function clearCurrent() {
     if (!current.segments.length) return;
-    if (!window.confirm('Obrisati cijeli aktivni prijepis?')) return;
+    if (!window.confirm(uiIsEnglish() ? 'Delete the entire active transcript?' : 'Obrisati cijeli aktivni prijepis?')) return;
     current.segments = [];
     current.speakers = [];
     resetTranscriptRuntimeForSession();
@@ -3557,19 +3890,23 @@ async function clearDurableState() {
 
   function transcriptAsText(includeHeader = true) {
     const lines = current.segments.map(segment => {
-      const label = segment.type === 'note' ? 'Bilješka' : speakerName(segment.speaker);
+      const label = segment.type === 'note' ? (uiIsEnglish() ? 'Note' : 'Bilješka') : speakerName(segment.speaker);
       const time = preferences.timestamps ? `[${formatTime(segment.createdAt)}] ` : '';
       return `${time}${label}: ${segment.text}`;
     });
     if (!includeHeader) return lines.join('\n\n');
-    const header = [
+    const header = uiIsEnglish() ? [
+      'CLARITY — CONVERSATION TRANSCRIPT',
+      `Mode: ${modeLabelFor(current.mode)}`,
+      `Date: ${new Intl.DateTimeFormat(uiLocale(), { dateStyle: 'long', timeStyle: 'short' }).format(current.createdAt)}`,
+      `Duration: ${formatElapsed(current.durationSeconds)}`,
+      '', '----------------------------------------', ''
+    ] : [
       'CLARITY — PRIJEPIS RAZGOVORA',
-      `Način: ${modeData[current.mode]?.label || 'Razgovor'}`,
-      `Datum: ${new Intl.DateTimeFormat('hr-HR', { dateStyle: 'long', timeStyle: 'short' }).format(current.createdAt)}`,
+      `Način: ${modeLabelFor(current.mode)}`,
+      `Datum: ${new Intl.DateTimeFormat(uiLocale(), { dateStyle: 'long', timeStyle: 'short' }).format(current.createdAt)}`,
       `Trajanje: ${formatElapsed(current.durationSeconds)}`,
-      '',
-      '----------------------------------------',
-      ''
+      '', '----------------------------------------', ''
     ];
     return [...header, ...lines].join('\n');
   }
@@ -3581,7 +3918,7 @@ async function clearDurableState() {
     const link = document.createElement('a');
     const date = new Date(current.createdAt).toISOString().slice(0, 10);
     link.href = url;
-    link.download = `clarity-prijepis-${date}.txt`;
+    link.download = `${uiIsEnglish() ? 'clarity-transcript' : 'clarity-prijepis'}-${date}.txt`;
     document.body.append(link);
     link.click();
     link.remove();
@@ -3590,28 +3927,19 @@ async function clearDurableState() {
   }
 
   function runDemo() {
-    const examples = {
-      social: [
-        ['Nađemo se u subotu oko sedam, ali javim ti još točno mjesto.', 1],
-        ['Može, samo mi pošalji poruku ranije jer možda budem u Rijeci.', 2],
-        ['Dogovoreno. Pazi, ulaz je privremeno zatvoren zbog radova.', 1]
-      ],
-      work: [
-        ['Nova verzija sučelja ide na pregled u četvrtak prijepodne.', 1],
-        ['Armin treba provjeriti mobilnu navigaciju i kontrast gumba prije slanja.', 2],
-        ['Ivan će nakon toga potvrditi možemo li objaviti verziju u petak.', 1]
-      ],
-      doctor: [
-        ['Novi program slušnog aparata koristite tri dana u mirnijem okruženju.', 1],
-        ['Ako govor i dalje zvuči prigušeno, zapišite kada se to događa.', 1],
-        ['Kontrola je sljedeći utorak u deset sati. Hitno se javite ako osjetite bol.', 1]
-      ],
-      lecture: [
-        ['Pristupačnost nije dodatak sučelju nego dio načina na koji proizvod radi.', 1],
-        ['Važan primjer je prikaz povratne informacije bez oslanjanja samo na boju.', 1],
-        ['Zaključak je da se odluke o pristupačnosti donose tijekom dizajna.', 1]
-      ]
+    const examplesHr = {
+      social: [['Nađemo se u subotu oko sedam, ali javim ti još točno mjesto.', 1], ['Može, samo mi pošalji poruku ranije jer možda budem u Rijeci.', 2], ['Dogovoreno. Pazi, ulaz je privremeno zatvoren zbog radova.', 1]],
+      work: [['Nova verzija sučelja ide na pregled u četvrtak prijepodne.', 1], ['Armin treba provjeriti mobilnu navigaciju i kontrast gumba prije slanja.', 2], ['Ivan će nakon toga potvrditi možemo li objaviti verziju u petak.', 1]],
+      doctor: [['Novi program slušnog aparata koristite tri dana u mirnijem okruženju.', 1], ['Ako govor i dalje zvuči prigušeno, zapišite kada se to događa.', 1], ['Kontrola je sljedeći utorak u deset sati. Hitno se javite ako osjetite bol.', 1]],
+      lecture: [['Pristupačnost nije dodatak sučelju nego dio načina na koji proizvod radi.', 1], ['Važan primjer je prikaz povratne informacije bez oslanjanja samo na boju.', 1], ['Zaključak je da se odluke o pristupačnosti donose tijekom dizajna.', 1]]
     };
+    const examplesEn = {
+      social: [['Let’s meet on Saturday around seven, and I’ll send you the exact location.', 1], ['Sure, just message me earlier because I may be in town.', 2], ['Agreed. The main entrance is temporarily closed for construction.', 1]],
+      work: [['The new interface version goes to review on Thursday morning.', 1], ['Armin needs to check mobile navigation and button contrast before delivery.', 2], ['Ivan will then confirm whether we can publish the release on Friday.', 1]],
+      doctor: [['Use the new hearing-aid program for three days in a quieter environment.', 1], ['If speech still sounds muffled, write down when it happens.', 1], ['Your follow-up is next Tuesday at ten. Contact us urgently if you feel pain.', 1]],
+      lecture: [['Accessibility is not an add-on to the interface; it is part of how the product works.', 1], ['An important example is feedback that does not rely only on color.', 1], ['The conclusion is that accessibility decisions are made during design.', 1]]
+    };
+    const examples = uiIsEnglish() ? examplesEn : examplesHr;
     const now = Date.now();
     current.segments = examples[preferences.mode].map((item, index) => ({
       id: createId('demo'),
@@ -3630,7 +3958,7 @@ async function clearDurableState() {
 
   function buildSummary() {
     const segments = current.segments.filter(item => item.type === 'speech');
-    if (!segments.length) return ['Još nema dovoljno teksta za pregled razgovora.'];
+    if (!segments.length) return [uiIsEnglish() ? 'There is not enough text for a conversation overview yet.' : 'Još nema dovoljno teksta za pregled razgovora.'];
     const urgent = segments.filter(item => containsUrgentWord(item.text)).slice(-2);
     const recent = segments.slice(-5);
     const selected = [...urgent, ...recent].filter((item, index, list) => list.findIndex(other => other.id === item.id) === index).slice(-5);
@@ -3756,11 +4084,13 @@ async function clearDurableState() {
 
   function updateLargeView() {
     const last = current.segments[current.segments.length - 1];
-    const liveText = interimText || last?.text || 'Pokreni slušanje i zadnja izgovorena rečenica prikazat će se ovdje.';
+    const liveText = interimText || last?.text || (uiIsEnglish() ? 'Start listening and the latest spoken sentence will appear here.' : 'Pokreni slušanje i zadnja izgovorena rečenica prikazat će se ovdje.');
     const speaker = interimText ? activeSpeaker : last?.speaker || activeSpeaker;
     dom.largeViewText.textContent = liveText;
-    dom.largeViewSpeaker.textContent = last?.type === 'note' && !interimText ? 'Bilješka' : speakerName(speaker);
-    dom.largeViewStatus.textContent = interimText ? 'Govor se još zapisuje' : isListening ? 'Zadnja dovršena rečenica' : 'Zadnja rečenica';
+    dom.largeViewSpeaker.textContent = last?.type === 'note' && !interimText ? (uiIsEnglish() ? 'Note' : 'Bilješka') : speakerName(speaker);
+    dom.largeViewStatus.textContent = uiIsEnglish()
+      ? (interimText ? 'Speech is still being transcribed' : isListening ? 'Latest completed sentence' : 'Latest sentence')
+      : (interimText ? 'Govor se još zapisuje' : isListening ? 'Zadnja dovršena rečenica' : 'Zadnja rečenica');
     dom.largeView.classList.toggle('urgent', containsUrgentWord(liveText));
     dom.largeViewClock.textContent = formatTime(Date.now());
   }
@@ -3799,7 +4129,7 @@ async function clearDurableState() {
 
   function showToast(message, duration = 2200) {
     clearTimeout(toastTimer);
-    dom.toast.textContent = message;
+    dom.toast.textContent = localizeRuntimeText(message);
     dom.toast.hidden = false;
     toastTimer = window.setTimeout(() => { dom.toast.hidden = true; }, duration);
   }
@@ -3812,6 +4142,7 @@ async function clearDurableState() {
     renderTranscript();
     dom.elapsed.textContent = formatElapsed(current.durationSeconds);
     updateStatus(isListening ? 'listening' : 'paused');
+    applyInterfaceLanguage();
   }
 
   function addListItem(listName, value) {
@@ -3835,9 +4166,11 @@ async function clearDurableState() {
       const button = event.target.closest('button[data-mode]');
       if (button) setMode(button.dataset.mode);
     });
-    dom.voiceLanguageSwitcher?.addEventListener('click', event => {
-      const button = event.target.closest('button[data-speech-language]');
-      if (button) setSpeechLanguage(button.dataset.speechLanguage);
+    [dom.voiceLanguageSwitcher, dom.mobileVoiceLanguageSwitcher].filter(Boolean).forEach(switcher => {
+      switcher.addEventListener('click', event => {
+        const button = event.target.closest('button[data-speech-language]');
+        if (button) setSpeechLanguage(button.dataset.speechLanguage);
+      });
     });
 
     dom.undoButton.addEventListener('click', undoLast);
@@ -3984,7 +4317,7 @@ async function clearDurableState() {
       }
     });
     dom.resetSettingsButton.addEventListener('click', () => {
-      if (!window.confirm('Vratiti sve postavke na početne vrijednosti?')) return;
+      if (!window.confirm(uiIsEnglish() ? 'Restore all settings to their default values?' : 'Vratiti sve postavke na početne vrijednosti?')) return;
       preferences = structuredCloneSafe(defaultPreferences);
       current.mode = preferences.mode;
       savePreferences();
@@ -4121,6 +4454,7 @@ async function clearDurableState() {
   registerServiceWorker();
     applyPreferences();
     renderAll();
+    applyInterfaceLanguage();
     loadAppVersion();
     dom.engineNotice.hidden = Boolean(loadJson(STORAGE.engineNoticeDismissed, false));
     savePreferences();

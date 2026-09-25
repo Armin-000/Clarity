@@ -214,7 +214,7 @@
 
           <div class="voice-language-card" aria-labelledby="voiceLanguageLabel">
             <div class="voice-language-copy">
-              <span id="voiceLanguageLabel">Voice jezik</span>
+              <span id="voiceLanguageLabel">Jezik</span>
               <strong id="voiceLanguageName">Hrvatski</strong>
             </div>
             <div id="voiceLanguageSwitcher" class="voice-language-switcher" role="radiogroup" aria-label="Jezik prepoznavanja govora">
@@ -261,6 +261,10 @@
         <div class="dock-actions">
           <button id="summaryButton" class="summary-button" type="button"><svg><use href="#i-spark"/></svg><span>Što sam propustio?</span></button>
           <span id="elapsed" class="elapsed">00:00</span>
+          <div id="mobileVoiceLanguageSwitcher" class="voice-language-switcher dock-language-switcher" role="radiogroup" aria-label="Jezik prepoznavanja govora">
+            <button type="button" data-speech-language="hr-HR" class="active" role="radio" aria-checked="true">HR</button>
+            <button type="button" data-speech-language="en-US" role="radio" aria-checked="false">EN</button>
+          </div>
           <button id="recordButton" class="record-button" type="button" aria-label="Pokreni novi odlomak"><svg><use href="#i-mic"/></svg><span>Start</span></button>
         </div>
       </div>
@@ -425,7 +429,7 @@
       <section>
         <h3>3. Mikrofon i prepoznavanje govora</h3>
         <p>Clarity traži pristup mikrofonu samo kada korisnik pokrene slušanje. Aplikacija ne sprema trajne zvučne snimke razgovora. Live način rada koristi mikrofon samo za trenutni prijepis i lokalni indikator zvuka.</p>
-        <p>Clarity ne koristi vlastiti AI/LLM/Whisper model niti vlastiti speech-to-text server. U native aplikaciji koristi sistemski speech-recognition servis operacijskog sustava (Android, Apple ili Windows) s jezikom <strong>hr-HR</strong>; obična web verzija koristi Web Speech samo kao kompatibilni fallback kada je dostupan.</p>
+        <p>Clarity ne koristi vlastiti AI/LLM/Whisper model niti vlastiti speech-to-text server. U native aplikaciji koristi sistemski speech-recognition servis operacijskog sustava (Android, Apple ili Windows) s odabranim jezikom <strong>hr-HR ili en-US</strong>; obična web verzija koristi Web Speech samo kao kompatibilni fallback kada je dostupan.</p>
       </section>
 
       <section>

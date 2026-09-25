@@ -413,6 +413,25 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 .dock-state strong { font-size: .71rem; }
 .dock-state div > span { margin-top: 3px; overflow: hidden; color: #9fa49d; font-size: .61rem; white-space: nowrap; text-overflow: ellipsis; }
 .dock-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+.dock-language-switcher {
+  display: none;
+  flex: 0 0 auto;
+  padding: 3px;
+  border-color: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.07);
+}
+.dock-language-switcher button {
+  min-width: 32px;
+  height: 30px;
+  padding: 0 8px;
+  color: #aeb3ac;
+}
+.dock-language-switcher button:hover { color: #fff; }
+.dock-language-switcher button.active {
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+}
 .summary-button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 10px; border: 0; border-radius: 10px; background: transparent; color: #d7dad4; font-size: .65rem; font-weight: 650; cursor: pointer; transition: transform .2s var(--ease), background .2s ease; }
 .summary-button:hover { background: rgba(255,255,255,.08); transform: translateY(-2px); }
 .elapsed { color: #9fa49d; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .66rem; font-variant-numeric: tabular-nums; }
@@ -653,6 +672,7 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
   .context-panel { display: none; }
   .control-dock { grid-template-columns: 1fr auto; }
   .dock-actions { justify-content: flex-end; }
+  .dock-language-switcher { display: inline-flex; }
   .workspace { grid-template-rows: auto auto auto minmax(0, 1fr) 106px; }
 }
 
@@ -676,9 +696,15 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
   .transcript-stream { padding: 24px 18px 105px; }
   .segment.interim { left: 18px; right: 18px; }
   .segment p { font-size: calc(1.28rem * var(--transcript-scale)); }
-  .control-dock { width: calc(100% - 24px); height: 70px; min-height: 70px; margin-bottom: 12px; padding: 10px 12px 10px 15px; gap: 10px; border-radius: 22px; }
-  .dock-state div > span { max-width: 140px; }
+  .control-dock { width: calc(100% - 24px); height: 70px; min-height: 70px; margin-bottom: 12px; padding: 10px 10px 10px 13px; gap: 8px; border-radius: 22px; }
+  .dock-state { gap: 8px; }
+  .dock-state div > span { max-width: 96px; }
+  .dock-actions { gap: 7px; }
   .summary-button { display: none; }
+  .elapsed { display: none; }
+  .dock-language-switcher { padding: 2px; }
+  .dock-language-switcher button { min-width: 30px; height: 29px; padding: 0 7px; font-size: .59rem; }
+  .record-button { min-width: 88px; height: 47px; padding-inline: 14px; }
   .large-view header, .large-view footer { padding: 18px; }
   .large-view main { padding: 25px 18px; }
   .large-view main p { font-size: clamp(2.5rem, 14vw, 5.4rem); }
@@ -689,6 +715,12 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
   .message-display p { font-size: clamp(2.4rem, 15vw, 5.7rem); }
   .summary-panel { right: 12px; bottom: 12px; width: calc(100% - 24px); max-height: calc(100vh - 24px); }
   .two-inputs { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 430px) {
+  #dockSubstatus { display: none; }
+  .dock-state strong { max-width: 76px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .record-button { min-width: 82px; padding-inline: 12px; }
 }
 
 /*
