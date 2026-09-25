@@ -155,12 +155,7 @@ async function clearDurableState() {
       phraseBoost: 2.2,
       vad: { noiseMultiplier: 1.68, bias: .00055, min: .0032, max: .024, hangover: 390 },
       audio: { highPass: 72, presenceHz: 2700, presenceGain: 3.1, compressorThreshold: -40, compressorRatio: 4.0, compressorAttack: .003, compressorRelease: .22, gain: 1.28, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
-      phrases: ['pozdrav', 'hvala', 'molim', 'dogovor', 'termin'],
-      tips: [
-        ['Razlikuje više glasova', 'Clarity automatski stvara profile Govornik 1, 2, 3… i pamti ih tijekom razgovora.'],
-        ['Govornici ostaju anonimni', 'Clarity koristi neutralne oznake Govornik 1, 2, 3… i nikada ne izvlači ime iz izgovorene rečenice.'],
-        ['Najbolje radi pri izmjeni govora', 'Ako ljudi govore istodobno preko iste mikrofonije, prijepis može biti manje precizan.']
-      ]
+      phrases: ['pozdrav', 'hvala', 'molim', 'dogovor', 'termin']
     },
     work: {
       label: 'Posao',
@@ -172,12 +167,7 @@ async function clearDurableState() {
       phraseBoost: 3.4,
       vad: { noiseMultiplier: 1.62, bias: .00050, min: .0030, max: .023, hangover: 400 },
       audio: { highPass: 76, presenceHz: 2750, presenceGain: 3.3, compressorThreshold: -41, compressorRatio: 4.2, compressorAttack: .003, compressorRelease: .23, gain: 1.32, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
-      phrases: ['klijent', 'poslodavac', 'projekt', 'rok', 'ugovor', 'ponuda', 'račun', 'cijena', 'sastanak', 'isporuka', 'zadatak', 'prioritet', 'dogovor', 'termin', 'plaća', 'budžet', 'faktura'],
-      tips: [
-        ['Dva glavna govornika', 'Profil očekuje razgovor u četiri oka i namjerno ograničava automatsko stvaranje lažnih dodatnih govornika.'],
-        ['Poslovni pojmovi imaju prednost', 'Rokovi, projekti, cijene, ugovori i nazivi iz osobnog rječnika dobivaju dodatni kontekst pri prepoznavanju.'],
-        ['Odluke ostaju čitljive', 'Niža sigurnost prepoznavanja označava se za provjeru prije nego što se na prijepis osloniš.']
-      ]
+      phrases: ['klijent', 'poslodavac', 'projekt', 'rok', 'ugovor', 'ponuda', 'račun', 'cijena', 'sastanak', 'isporuka', 'zadatak', 'prioritet', 'dogovor', 'termin', 'plaća', 'budžet', 'faktura']
     },
     doctor: {
       label: 'Liječnik',
@@ -191,12 +181,7 @@ async function clearDurableState() {
       vad: { noiseMultiplier: 1.60, bias: .00048, min: .0029, max: .022, hangover: 410 },
       audio: { highPass: 74, presenceHz: 2850, presenceGain: 3.4, compressorThreshold: -42, compressorRatio: 4.4, compressorAttack: .003, compressorRelease: .24, gain: 1.34, noiseSuppression: true, echoCancellation: true, voiceIsolation: true, processedTrack: false },
       phrases: ['liječnik', 'doktor', 'terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'jednom dnevno', 'dva puta dnevno', 'tri puta dnevno', 'recept', 'uputnica', 'nalaz', 'dijagnoza', 'simptomi', 'krvni tlak', 'temperatura', 'alergija', 'antibiotik', 'kontrola', 'pregled', 'krvna slika', 'šećer u krvi'],
-      criticalTerms: ['terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'recept', 'dijagnoza', 'antibiotik', 'alergija', 'krvni tlak', 'šećer u krvi'],
-      tips: [
-        ['Liječnički govor ima prioritet', 'Clarity traži više mogućih prijepisa i koristi medicinski kontekst kako bi odabrao uvjerljiviju varijantu.'],
-        ['Doze i terapija se strože provjeravaju', 'Rečenice s lijekovima, dozama ili mjernim jedinicama označavaju se već pri manjoj sumnji.'],
-        ['Ne skriva nesigurnost', 'Ako prepoznavanje nije dovoljno sigurno, Clarity će tražiti da važan detalj provjeriš umjesto da se pretvara da je siguran.']
-      ]
+      criticalTerms: ['terapija', 'lijek', 'lijekovi', 'doza', 'tableta', 'tablete', 'kapsula', 'miligram', 'miligrama', 'mililitar', 'mililitara', 'recept', 'dijagnoza', 'antibiotik', 'alergija', 'krvni tlak', 'šećer u krvi']
     },
     lecture: {
       label: 'Predavanje',
@@ -208,12 +193,7 @@ async function clearDurableState() {
       phraseBoost: 3.2,
       vad: { noiseMultiplier: 1.34, bias: .00032, min: .0021, max: .018, hangover: 500 },
       audio: { highPass: 82, presenceHz: 2600, presenceGain: 4.3, compressorThreshold: -48, compressorRatio: 5.4, compressorAttack: .005, compressorRelease: .30, gain: 1.68, noiseSuppression: false, echoCancellation: true, voiceIsolation: false, processedTrack: false },
-      phrases: ['profesor', 'predavač', 'predavanje', 'ispit', 'kolokvij', 'seminar', 'definicija', 'primjer', 'objašnjenje', 'važno', 'zapamtite', 'poglavlje', 'formula', 'zadataka'],
-      tips: [
-        ['Pojačan udaljeni govor', 'Kompresija i osjetljiviji VAD čuvaju tiši glas predavača koji dolazi s druge strane učionice.'],
-        ['Traži dominantnog predavača', 'Govornik koji kontinuirano daje većinu sadržaja označava se kao predavač, dok kratke upadice studenata ostaju odvojene.'],
-        ['Pauza ne prekida slušanje', 'Tišina sama više ne pokreće restart. Clarity obnavlja diktiranje samo kada stvarno čuje govor bez rezultata.']
-      ]
+      phrases: ['profesor', 'predavač', 'predavanje', 'ispit', 'kolokvij', 'seminar', 'definicija', 'primjer', 'objašnjenje', 'važno', 'zapamtite', 'poglavlje', 'formula', 'zadataka']
     }
   };
 
@@ -233,6 +213,7 @@ async function clearDurableState() {
 
   const defaultPreferences = {
     mode: 'social',
+    speechLanguage: 'hr-HR',
     fontScale: 1,
     highContrast: false,
     reduceMotion: false,
@@ -289,6 +270,8 @@ async function clearDurableState() {
     interimText: $('interimText'),
     contextTitle: $('contextTitle'),
     contextDescription: $('contextDescription'),
+    voiceLanguageSwitcher: $('voiceLanguageSwitcher'),
+    voiceLanguageName: $('voiceLanguageName'),
     largeViewButton: $('largeViewButton'),
     quickMessageButton: $('quickMessageButton'),
     addNoteButton: $('addNoteButton'),
@@ -583,6 +566,7 @@ async function clearDurableState() {
   function sanitizePreferences(value) {
     const next = { ...defaultPreferences, ...(value && typeof value === 'object' ? value : {}) };
     next.mode = modeData[next.mode] ? next.mode : 'social';
+    next.speechLanguage = ['hr-HR', 'en-US'].includes(next.speechLanguage) ? next.speechLanguage : 'hr-HR';
     next.fontScale = clamp(Number(next.fontScale) || 1, .9, 1.55);
     next.soundThreshold = clamp(Number(next.soundThreshold) || 94, 75, 98);
     next.speakerOne = cleanLabel(next.speakerOne, 'Govornik 1');
@@ -724,9 +708,28 @@ async function clearDurableState() {
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
+  function activeSpeechLanguage() {
+    return preferences?.speechLanguage === 'en-US' ? 'en-US' : 'hr-HR';
+  }
+
+  function activeSpeechLanguageMeta() {
+    return activeSpeechLanguage() === 'en-US'
+      ? { code: 'en-US', short: 'EN', name: 'English' }
+      : { code: 'hr-HR', short: 'HR', name: 'Hrvatski' };
+  }
+
   function normalizeRecognizedText(value, finalize = true) {
     let text = String(value || '').normalize('NFC').replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
     if (!text) return '';
+
+    if (activeSpeechLanguage() === 'en-US') {
+      text = cleanupCroatianPunctuation(text);
+      if (finalize) {
+        text = text.charAt(0).toLocaleUpperCase('en-US') + text.slice(1);
+        if (!/[.!?…]$/.test(text) && text.length > 1) text += '.';
+      }
+      return text;
+    }
 
     const corrections = [
       [/\bpoždrav\b/giu, 'pozdrav'],
@@ -1139,6 +1142,7 @@ async function clearDurableState() {
   }
 
   function applyContextualBias(instance) {
+    if (activeSpeechLanguage() !== 'hr-HR') return false;
     if (contextualBiasDisabled || !instance || !('phrases' in instance) || typeof window.SpeechRecognitionPhrase !== 'function') return false;
     try {
       const data = activeModeProfile();
@@ -1220,7 +1224,8 @@ async function clearDurableState() {
       const text = normalizeRecognizedText(rawTranscript, false);
       const hasConfidence = Number.isFinite(alternative?.confidence) && alternative.confidence > 0;
       const confidence = hasConfidence ? clamp(alternative.confidence, 0, 1) : Math.max(.55, .78 - index * .045);
-      const score = confidence + modeAlternativeBonus(text) + coreCroatianPhraseBonus(text) + recognitionCroatianScore(text);
+      const languageBonus = activeSpeechLanguage() === 'hr-HR' ? coreCroatianPhraseBonus(text) + recognitionCroatianScore(text) : 0;
+      const score = confidence + modeAlternativeBonus(text) + languageBonus;
       const candidate = { text, confidence, score, index };
       if (!best || candidate.score > best.score + .012 || (Math.abs(candidate.score - best.score) <= .012 && index < best.index)) best = candidate;
     }
@@ -2218,16 +2223,38 @@ async function clearDurableState() {
       button.setAttribute('aria-selected', String(active));
     });
 
-    const blocks = [...document.querySelectorAll('.context-panel .context-block')];
-    (data.tips || []).slice(0, blocks.length).forEach((tip, index) => {
-      const strong = blocks[index].querySelector('strong');
-      const paragraph = blocks[index].querySelector('p');
-      if (strong) strong.textContent = tip[0];
-      if (paragraph) paragraph.textContent = tip[1];
-    });
+    renderSpeechLanguage();
 
     if (!shouldListen && !isListening) {
-      dom.dockSubstatus.textContent = `Hrvatski · hr-HR · ${data.status}`;
+      const language = activeSpeechLanguageMeta();
+      dom.dockSubstatus.textContent = `${language.name} · ${language.code} · ${data.status}`;
+    }
+  }
+
+  function renderSpeechLanguage() {
+    const language = activeSpeechLanguageMeta();
+    if (dom.voiceLanguageName) dom.voiceLanguageName.textContent = language.name;
+    dom.voiceLanguageSwitcher?.querySelectorAll('button[data-speech-language]').forEach(button => {
+      const active = button.dataset.speechLanguage === language.code;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-checked', String(active));
+    });
+  }
+
+  function setSpeechLanguage(language) {
+    if (!['hr-HR', 'en-US'].includes(language) || language === activeSpeechLanguage()) return;
+    preferences.speechLanguage = language;
+    contextualBiasDisabled = false;
+    browserOnDeviceChecked = false;
+    browserOnDeviceRecognition = false;
+    savePreferences();
+    renderSpeechLanguage();
+
+    const meta = activeSpeechLanguageMeta();
+    if (shouldListen || isListening) {
+      softRestartRecognition(`${meta.name} · ${meta.code} · mijenjam Voice jezik…`, 180);
+    } else {
+      updateStatus('paused', `${meta.name} · ${meta.code} · ${activeModeProfile().status}`);
     }
   }
 
@@ -2289,6 +2316,7 @@ async function clearDurableState() {
     dom.aiModelSelect.value = preferences.aiModel;
     dom.aiModelSelect.disabled = !preferences.aiRefine;
     if (dom.standardizeCroatianInput) dom.standardizeCroatianInput.checked = Boolean(preferences.standardizeCroatian);
+    renderSpeechLanguage();
     updateAiStatus(preferences.aiRefine ? aiState : 'idle');
     renderSpeakerLabels();
     renderWordList(dom.keywordList, preferences.urgentWords, removeUrgentWord);
@@ -2357,7 +2385,8 @@ async function clearDurableState() {
       error: 'Prekinuto'
     }[status] || 'Pauzirano';
     dom.dockStatus.textContent = statusText;
-    dom.dockSubstatus.textContent = message || `Hrvatski · hr-HR · ${activeModeProfile().status}`;
+    const language = activeSpeechLanguageMeta();
+    dom.dockSubstatus.textContent = message || `${language.name} · ${language.code} · ${activeModeProfile().status}`;
   }
 
   function showStatusBanner(message) {
@@ -2467,7 +2496,7 @@ async function clearDurableState() {
     if (typeof SpeechRecognition.available !== 'function') return false;
     try {
       const availability = await Promise.race([
-        SpeechRecognition.available({ langs: ['hr-HR'], processLocally: true, quality: 'dictation' }),
+        SpeechRecognition.available({ langs: [activeSpeechLanguage()], processLocally: true, quality: 'dictation' }),
         new Promise(resolve => window.setTimeout(() => resolve('timeout'), 900))
       ]);
       browserOnDeviceRecognition = availability === 'available';
@@ -2688,7 +2717,7 @@ async function clearDurableState() {
     recognition = instance;
     recognitionResultSerials = new Map();
     recognitionStartAttemptAt = Date.now();
-    instance.lang = 'hr-HR';
+    instance.lang = activeSpeechLanguage();
     // Za prezentacije biramo stabilniji browser/cloud put. processLocally je eksperimentalan.
     // Ne forsiramo cloud ni lokalni način: preglednik/platforma bira svoj dostupni speech engine.
     // Jedan korisnički Start predstavlja jedan odlomak. Browser smije interno
@@ -2716,7 +2745,10 @@ async function clearDurableState() {
       recognitionStartAttemptAt = 0;
       recognitionLastResultAt = recognitionStartedAt;
       touchRecognitionActivity(false);
-      updateStatus('listening', window.__clarityNativeSpeech ? 'Hrvatski · native speech servis uređaja' : 'Hrvatski · web speech servis');
+      const language = activeSpeechLanguageMeta();
+      updateStatus('listening', window.__clarityNativeSpeech
+        ? `${language.name} · ${language.code} · native speech servis uređaja`
+        : `${language.name} · ${language.code} · web speech servis`);
       startElapsedTimer();
     };
 
@@ -2821,7 +2853,10 @@ async function clearDurableState() {
         // Lokalni paket može nestati nakon browser updatea. Odmah se vrati na
         // standardni browser kanal umjesto da prekine cijeli razgovor.
         browserOnDeviceRecognition = false;
-        if (shouldListen) softRestartRecognition('Lokalni hrvatski diktat nije dostupan — nastavljam standardnim browser diktiranjem…', 220);
+        if (shouldListen) {
+          const language = activeSpeechLanguageMeta();
+          softRestartRecognition(`Lokalni ${language.name} diktat nije dostupan — nastavljam standardnim browser diktiranjem…`, 220);
+        }
         return;
       }
 
@@ -2830,7 +2865,7 @@ async function clearDurableState() {
         'service-not-allowed': 'Usluga diktiranja nije dopuštena u pregledniku.',
         'audio-capture': 'Mikrofon nije pronađen ili ga koristi druga aplikacija.',
         'network': 'Diktiranje je privremeno izgubilo mrežnu vezu. Clarity će pokušati ponovno.',
-        'language-not-supported': 'Preglednik trenutačno ne podržava hrvatski diktat.'
+        'language-not-supported': `Preglednik trenutačno ne podržava ${activeSpeechLanguageMeta().name} diktat.`
       };
       const message = errors[code] || `Diktiranje je prijavilo problem: ${code}.`;
       showStatusBanner(message);
@@ -3799,6 +3834,10 @@ async function clearDurableState() {
     dom.modeSwitcher.addEventListener('click', event => {
       const button = event.target.closest('button[data-mode]');
       if (button) setMode(button.dataset.mode);
+    });
+    dom.voiceLanguageSwitcher?.addEventListener('click', event => {
+      const button = event.target.closest('button[data-speech-language]');
+      if (button) setSpeechLanguage(button.dataset.speechLanguage);
     });
 
     dom.undoButton.addEventListener('click', undoLast);

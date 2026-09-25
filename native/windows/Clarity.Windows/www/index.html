@@ -212,6 +212,19 @@
 
           <div class="context-rule"></div>
 
+          <div class="voice-language-card" aria-labelledby="voiceLanguageLabel">
+            <div class="voice-language-copy">
+              <span id="voiceLanguageLabel">Voice jezik</span>
+              <strong id="voiceLanguageName">Hrvatski</strong>
+            </div>
+            <div id="voiceLanguageSwitcher" class="voice-language-switcher" role="radiogroup" aria-label="Jezik prepoznavanja govora">
+              <button type="button" data-speech-language="hr-HR" class="active" role="radio" aria-checked="true">HR</button>
+              <button type="button" data-speech-language="en-US" role="radio" aria-checked="false">EN</button>
+            </div>
+          </div>
+
+          <div class="context-rule compact"></div>
+
           <button id="largeViewButton" class="accessibility-card" type="button">
             <span class="accessibility-icon"><svg><use href="#i-expand"/></svg></span>
             <span><strong>Veliki prikaz</strong><small>Zadnja rečenica preko cijelog ekrana.</small></span>
@@ -229,21 +242,6 @@
             <span><strong>Dodaj bilješku</strong><small>Upiši važan detalj u razgovor.</small></span>
             <svg class="chevron"><use href="#i-chevron"/></svg>
           </button>
-
-          <div class="context-rule"></div>
-
-          <div class="context-block">
-            <span class="context-number">01</span>
-            <div><strong>Start i Kraj određuju odlomke</strong><p>Pritisni Start i Clarity sluša sve dok namjerno ne pritisneš Kraj. Sljedeći Start uvijek otvara novi odlomak.</p></div>
-          </div>
-          <div class="context-block">
-            <span class="context-number">02</span>
-            <div><strong>Važne riječi se ističu</strong><p>Riječi poput “hitno”, “pazi” i “požar” dobit će jasno upozorenje.</p></div>
-          </div>
-          <div class="context-block">
-            <span class="context-number">03</span>
-            <div><strong>Ekran može ostati budan</strong><p>Kada preglednik podržava tu mogućnost, Clarity sprječava gašenje zaslona tijekom razgovora.</p></div>
-          </div>
 
           <div class="engine-card">
             <div class="engine-card-icon"><svg><use href="#i-volume"/></svg></div>

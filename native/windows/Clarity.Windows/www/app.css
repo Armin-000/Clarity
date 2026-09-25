@@ -340,6 +340,15 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 .context-panel-head h2 { margin: 0; font-size: 1.3rem; font-weight: 620; letter-spacing: -.04em; }
 .context-panel-head > p:last-child { margin: 9px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.55; }
 .context-rule { height: 1px; margin: 18px 0; background: var(--line); }
+.context-rule.compact { margin: 12px 0 16px; }
+.voice-language-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 11px; border: 1px solid var(--line-strong); border-radius: 9px; background: var(--paper-strong); }
+.voice-language-copy span, .voice-language-copy strong { display: block; }
+.voice-language-copy span { color: var(--faint); font-size: .55rem; font-weight: 760; text-transform: uppercase; letter-spacing: .08em; }
+.voice-language-copy strong { margin-top: 3px; font-size: .72rem; }
+.voice-language-switcher { display: grid; grid-template-columns: repeat(2, minmax(42px, 1fr)); gap: 3px; padding: 3px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.voice-language-switcher button { min-width: 42px; padding: 7px 9px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font: inherit; font-size: .62rem; font-weight: 800; letter-spacing: .04em; cursor: pointer; transition: background .16s ease, color .16s ease, box-shadow .16s ease; }
+.voice-language-switcher button:hover { color: var(--ink); }
+.voice-language-switcher button.active { background: var(--paper-strong); color: var(--ink); box-shadow: 0 1px 4px rgba(24,28,24,.10); }
 .accessibility-card { display: grid; grid-template-columns: 37px 1fr 18px; align-items: center; gap: 10px; width: 100%; margin: 0 0 8px; padding: 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--paper-strong); text-align: left; cursor: pointer; }
 .accessibility-card:hover { border-color: var(--accent); background: var(--accent-soft); }
 .accessibility-icon { display: grid; place-items: center; width: 35px; height: 35px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); }
