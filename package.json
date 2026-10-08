@@ -1,15 +1,16 @@
 {
   "name": "clarity-web",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
-    "dev": "node server.mjs",
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1 --directory build",
     "build": "node scripts/verify-build.mjs",
-    "test": "node scripts/verify-build.mjs && node scripts/test-speech-bridge.mjs",
+    "test": "node scripts/verify-build.mjs && node scripts/test-speech-bridge.mjs && node scripts/test-transcript-core.mjs",
     "sync:native": "node scripts/sync-native-assets.mjs",
-    "verify:native": "node scripts/verify-native.mjs"
+    "verify:native": "node scripts/verify-native.mjs",
+    "preview:phone": "node scripts/preview-phone.mjs"
   },
   "engines": {
     "node": ">=20"

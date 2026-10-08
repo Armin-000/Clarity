@@ -3,3 +3,6 @@
 .clarity.port
 clarity.log
 clarity-error.log
+
+# Local Clarity backups
+.clarity-backup-*/

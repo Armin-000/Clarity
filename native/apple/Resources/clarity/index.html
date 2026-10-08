@@ -85,7 +85,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="./app.css?v=6.0.0" />
+  <link rel="stylesheet" href="./app.css?v=6.1.0" />
   <title>Clarity — hrvatski govor u tekst uživo | Codarox</title>
 </head>
 <body>
@@ -169,12 +169,6 @@
         <button id="closeStatusButton" type="button">Zatvori</button>
       </div>
 
-      <div id="engineNotice" class="engine-notice">
-        <svg><use href="#i-shield"/></svg>
-        <span><strong>Live prijepis preko speech servisa tvog uređaja.</strong> Start ostaje aktivan do namjernog pritiska na Kraj; interni restart browsera ne prekida odlomak.</span>
-        <button id="closeEngineNoticeButton" class="engine-notice-close" type="button" aria-label="Sakrij ovu obavijest" title="Sakrij obavijest"><svg><use href="#i-close"/></svg></button>
-      </div>
-
       <div id="loudSoundAlert" class="loud-sound-alert" hidden role="status">
         <svg><use href="#i-alert"/></svg>
         <div><strong>Glasan zvuk u blizini</strong><span>Clarity je primijetio nagli porast glasnoće.</span></div>
@@ -187,12 +181,7 @@
             <div class="empty-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
             <p class="eyebrow">Spremno za razgovor</p>
             <h1>Manje napora.<br />Više razgovora.</h1>
-            <p class="empty-copy">Clarity pretvara hrvatski govor u čitljiv prijepis u stvarnom vremenu za gluhe i nagluhe osobe. Postavi uređaj između sebe i sugovornika i pokreni slušanje.</p>
-            <div class="empty-actions">
-              <button id="emptyStartButton" class="primary-button" type="button"><svg><use href="#i-mic"/></svg>Pokreni slušanje</button>
-              <button id="demoButton" class="text-button" type="button">Prikaži primjer</button>
-            </div>
-            <p class="privacy-line"><svg><use href="#i-shield"/></svg> Prijepisi i povijest spremaju se samo u ovom pregledniku.</p>
+            <p class="privacy-line"><svg aria-hidden="true"><use href="#i-shield"/></svg> Prijepisi i povijest spremaju se samo u ovom pregledniku.</p>
           </div>
 
           <div id="transcriptStream" class="transcript-stream" hidden></div>
@@ -245,8 +234,8 @@
 
           <div class="engine-card">
             <div class="engine-card-icon"><svg><use href="#i-volume"/></svg></div>
-            <div><span>Vizualna glasnoća</span><strong id="soundStateText">Mikrofon miruje</strong></div>
-            <div id="miniSoundMeter" class="mini-sound-meter"><span></span><span></span><span></span><span></span><span></span></div>
+            <div><span>Status prepoznavanja</span><strong id="soundStateText">Mikrofon miruje</strong></div>
+            <div id="miniSoundMeter" class="mini-sound-meter" hidden><span></span><span></span><span></span><span></span><span></span></div>
           </div>
         </aside>
       </div>
@@ -259,7 +248,6 @@
 
 
         <div class="dock-actions">
-          <button id="summaryButton" class="summary-button" type="button"><svg><use href="#i-spark"/></svg><span>Što sam propustio?</span></button>
           <span id="elapsed" class="elapsed">00:00</span>
           <div id="mobileVoiceLanguageSwitcher" class="voice-language-switcher dock-language-switcher" role="radiogroup" aria-label="Jezik prepoznavanja govora">
             <button type="button" data-speech-language="hr-HR" class="active" role="radio" aria-checked="true">HR</button>
@@ -280,9 +268,9 @@
     </header>
     <div class="panel-content">
       <section>
-        <div class="setting-heading"><svg><use href="#i-user"/></svg><div><strong>Govornici</strong><span>Clarity pokušava razlikovati glasove prema zvučnim značajkama i koristi neutralne oznake Govornik 1, 2, 3… Imena se nikada ne izvlače iz sadržaja govora.</span></div></div>
+        <div class="setting-heading"><svg><use href="#i-user"/></svg><div><strong>Govornici</strong><span>Clarity prikazuje neutralne oznake govornika. U jednostavnom live načinu ne prepoznaje automatski tko govori.</span></div></div>
         <div id="speakerProfilesList" class="speaker-profiles" aria-live="polite"></div>
-        <p class="setting-note">Broj očekivanih govornika ovisi o profilu: Posao i Liječnik očekuju razgovor 1-na-1, Predavanje dopušta predavača i kratke upadice, a Razgovor ostaje otvoren za više ljudi. Clarity namjerno ne pretvara rečenice poput “Ja sam Armin” u ime profila.</p>
+        <p class="setting-note">Način rada ne mijenja prepoznate riječi. Ako govori više ljudi, njihove izjave neće se automatski razdvajati po glasu.</p>
       </section>
 
       <section>
@@ -291,23 +279,14 @@
         <div class="range-labels"><span>Manje</span><span>Veće</span></div>
       </section>
 
-      <section>
-        <div class="setting-heading"><svg><use href="#i-volume"/></svg><div><strong>Upozorenje na glasan zvuk</strong><span>Opcionalno upozorenje samo za dugotrajan, vrlo glasan zvuk izvan govora.</span></div></div>
+      <section hidden aria-hidden="true">
+        <div class="setting-heading"><svg><use href="#i-volume"/></svg><div><strong>Upozorenje na glasan zvuk</strong><span>Isključeno u načinu rada s jednim STT sustavom (bez zasebnog snimanja zvuka).</span></div></div>
         <label class="toggle-row"><span>Vizualno upozorenje</span><input id="soundAlertsInput" type="checkbox" /></label>
         <label class="range-row"><span>Osjetljivost</span><input id="soundThresholdInput" type="range" min="75" max="98" step="1" /></label>
       </section>
 
       <section>
-        <div class="setting-heading"><svg><use href="#i-alert"/></svg><div><strong>Važne riječi</strong><span>Clarity ih ističe kako bi ih bilo teško previdjeti.</span></div></div>
-        <form id="keywordForm" class="word-form">
-          <input id="keywordInput" placeholder="Dodaj riječ…" aria-label="Nova važna riječ" />
-          <button type="submit">Dodaj</button>
-        </form>
-        <div id="keywordList" class="word-list"></div>
-      </section>
-
-      <section>
-        <div class="setting-heading"><svg><use href="#i-spark"/></svg><div><strong>Osobni rječnik</strong><span>Upiši točan zapis neobičnog imena ili naziva. Izraz se koristi samo kao kontekst za prepoznavanje gdje preglednik to podržava, npr. Lyllo ili AlphaWave.</span></div></div>
+        <div class="setting-heading"><svg><use href="#i-spark"/></svg><div><strong>Osobni rječnik</strong><span>Spremi nazive za vlastitu evidenciju. Clarity ih neće automatski umetati niti mijenjati riječi koje je STT prepoznao.</span></div></div>
         <form id="vocabularyForm" class="word-form">
           <input id="vocabularyInput" placeholder="Primjer: Lyllo ili AlphaWave" aria-label="Novi izraz" />
           <button type="submit">Dodaj</button>
@@ -342,16 +321,6 @@
         <button id="resetSettingsButton" class="danger-text-button" type="button">Vrati početne postavke</button>
       </section>
     </div>
-  </aside>
-
-  <aside id="summaryPanel" class="summary-panel" aria-label="Sažetak razgovora" hidden>
-    <header>
-      <div class="summary-symbol"><svg><use href="#i-spark"/></svg></div>
-      <div><p class="eyebrow">Nedavni razgovor</p><h2>Što sam propustio?</h2></div>
-      <button class="icon-button close-panel" type="button" aria-label="Zatvori"><svg><use href="#i-close"/></svg></button>
-    </header>
-    <ol id="summaryList"></ol>
-    <p class="summary-disclaimer">Ovo je jednostavan pregled zadnjih važnih rečenica, a ne medicinski ili pravni sažetak. Za važne odluke pročitaj cijeli razgovor.</p>
   </aside>
 
   <aside id="mobileSessionsPanel" class="side-panel mobile-sessions-panel" aria-label="Razgovori" hidden>
@@ -422,13 +391,13 @@
 
       <section>
         <h3>2. Što Clarity sprema</h3>
-        <p>U ovoj verziji prijepisi razgovora, spremljene sesije, postavke pristupačnosti, važne riječi i osobni rječnik spremaju se lokalno u pohranu preglednika na uređaju korisnika. Clarity nema vlastitu bazu podataka u koju šalje i trajno sprema te prijepise.</p>
+        <p>U ovoj verziji prijepisi razgovora, spremljene sesije, postavke pristupačnosti i osobni rječnik spremaju se lokalno u pohranu preglednika na uređaju korisnika. Clarity nema vlastitu bazu podataka u koju šalje i trajno sprema te prijepise.</p>
         <p>Podaci ostaju u pregledniku dok ih korisnik ne obriše u aplikaciji, ne očisti podatke preglednika ili ne ukloni lokalnu pohranu stranice.</p>
       </section>
 
       <section>
         <h3>3. Mikrofon i prepoznavanje govora</h3>
-        <p>Clarity traži pristup mikrofonu samo kada korisnik pokrene slušanje. Aplikacija ne sprema trajne zvučne snimke razgovora. Live način rada koristi mikrofon samo za trenutni prijepis i lokalni indikator zvuka.</p>
+        <p>Clarity traži pristup mikrofonu samo kada korisnik pokrene slušanje. Aplikacija ne sprema trajne zvučne snimke razgovora. Mikrofon u live načinu koristi isključivo speech servis, bez dodatnog audio analizatora.</p>
         <p>Clarity ne koristi vlastiti AI/LLM/Whisper model niti vlastiti speech-to-text server. U native aplikaciji koristi sistemski speech-recognition servis operacijskog sustava (Android, Apple ili Windows) s odabranim jezikom <strong>hr-HR ili en-US</strong>; obična web verzija koristi Web Speech samo kao kompatibilni fallback kada je dostupan.</p>
       </section>
 
@@ -439,7 +408,7 @@
 
       <section>
         <h3>5. Svrha i pravna osnova</h3>
-        <p>Lokalna obrada služi isključivo za funkcije koje korisnik traži: pretvaranje govora u tekst, spremanje razgovora, prilagodbu prikaza i primjenu osobnog rječnika. Dopuštenje za mikrofon daje i može povući sam korisnik kroz postavke preglednika.</p>
+        <p>Lokalna obrada služi isključivo za funkcije koje korisnik traži: pretvaranje govora u tekst, spremanje razgovora, prilagodbu prikaza i spremanje korisničkih riječi bez automatskog mijenjanja prijepisa. Dopuštenje za mikrofon daje i može povući sam korisnik kroz postavke preglednika.</p>
       </section>
 
       <section>
@@ -498,7 +467,8 @@
 
   <div id="toast" class="toast" hidden role="status"></div>
 
-  <script src="./clarity-speech-bridge.js?v=6.0.0"></script>
-  <script src="./app.js?v=6.0.0"></script>
+  <script src="./clarity-speech-bridge.js?v=6.1.0"></script>
+  <script src="./modules/transcript-core.js?v=6.1.0"></script>
+  <script src="./app.js?v=6.1.0"></script>
 </body>
 </html>

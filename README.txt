@@ -1,41 +1,54 @@
-CLARITY 6.0.0 — NATIVE SYSTEM SPEECH
+CLARITY 6.1.0 — SIMPLE LIVE TRANSCRIPTION
 
-Clarity je hrvatska live-transcription aplikacija koja sada koristi jedan ClaritySpeech API iznad sistemskog speech-recognition servisa uređaja.
+Clarity transcribes speech as it arrives. It does not use a local LLM, Whisper,
+post-processing grammar corrections, forced punctuation or heuristic reranking.
+The words in the transcript come from the speech-recognition service selected
+by the platform; only technical whitespace is normalized.
 
-Glavne odluke
--------------
-- Nema Whispera, Qwena, LLM-a, Deepgrama niti Clarity STT servera.
-- Android native koristi android.speech.SpeechRecognizer.
-- iPhone/iPad/macOS koriste Apple Speech framework (SFSpeechRecognizer).
-- Windows native adapter koristi Windows.Media.SpeechRecognition.SpeechRecognizer.
-- Obična web verzija zadržava Web Speech API samo kao kompatibilni fallback.
-- Jezik je hr-HR.
-- Native Start/Kraj koristi sistemske recognition sesije, a Clarity ih spaja u jedan korisnički odlomak.
-- Native način ne otvara paralelni browser getUserMedia audio-meter dok sistemski recognizer drži mikrofon.
-- Povijest i postavke ostaju lokalno u Clarity aplikaciji.
+LIVE PATH
+  User taps Start -> OS/browser speech recognition -> partial text ->
+  confirmed text -> local saved conversation on Stop.
 
-Web pokretanje
--------------
-npm install
-npm run dev
+  - Android native: android.speech.SpeechRecognizer
+  - Apple native: SFSpeechRecognizer
+  - Windows native: Windows.Media.SpeechRecognition.SpeechRecognizer
+  - Web: SpeechRecognition / webkitSpeechRecognition where supported
+  - HR (hr-HR) and EN (en-US) are selectable.
 
-Otvori: http://localhost:8768
+Web Speech may rely on a cloud speech service provided by the browser and may
+not behave consistently across Android browsers. It is not an offline STT API.
 
-Sinkronizacija UI-a u native wrappere
--------------------------------------
-npm run sync:native
+IMPORTANT 6.1 CHANGES
+  - No parallel getUserMedia call or independent audio meter.
+  - Browser speech starts directly from the Start click, before screen wake lock.
+  - Android browser sessions use continuous=false and controlled restarts.
+  - Only the first STT result is used, with no dictionary/mode rewrite.
+  - Temporary text is live-only until final (or the user manually stops).
+  - Confirmed text is preserved if the speech service reports an error.
+  - Automatic speaker recognition and loud sound alerts are not active in this
+    transcription-only mode; the UI does not pretend these features work.
+  - Mode tabs label the conversation; they do not change captured audio.
 
-Provjera
---------
-npm test
-npm run verify:native
+RUN
+  npm run dev             Web server (http://localhost:8768)
+  npm test                Source checks, native bridge, transcript-core tests
+  npm run sync:native     Copy build/ assets to Android / Apple / Windows shells
+  npm run verify:native   Check native bridge/project assets
+  npm run build           Source/build structural verification
 
-Native projekti
----------------
-Android: native/android
-Apple iOS + macOS: native/apple
-Windows: native/windows/Clarity.Windows
+OPTIONAL BROWSER MOCK (requires Python Playwright + Chromium)
+  python3 scripts/mock-browser-smoke.py
+This is a simulated Web Speech event test, NOT a physical Android microphone
+or real speech recognition quality test.
 
-Važno
------
-Clarity ne donosi vlastiti speech-to-text model. Točnost hrvatskog prijepisa ovisi o sistemskom speech-recognition servisu koji je instaliran/dostupan na konkretnom uređaju. Native bridge standardizira lifecycle, partial/final događaje, restart sesija i ponašanje UI-a, ali ne može učiniti Apple/Google/Microsoft recognition modele identičnima.
+Deployment uses build/ as the web root. All native assets are copied from it.
+Test on physical Android Chrome and Edge with a real HTTPS deployment; a device
+must have an available and permitted speech-recognition service for the chosen
+language. More detail: docs/SIMPLE-LIVE-6.1.md.
+
+LOCAL PREVIEW (Mac): npm run dev -> http://localhost:5173
+PHONE PREVIEW (HTTPS + terminal QR):
+  1. brew install cloudflared qrencode
+  2. npm run preview:phone
+  3. Scan QR on Android/iPhone; press Ctrl+C to stop.
+  Documentation: docs/PHONE-PREVIEW.md

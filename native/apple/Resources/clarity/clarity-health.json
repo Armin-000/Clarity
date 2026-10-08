@@ -1,7 +1,7 @@
 {
   "ok": true,
   "app": "Clarity",
-  "version": "6.0.0-native-system-speech",
+  "version": "6.1.0-simple-live-transcription",
   "language": "hr-HR",
   "mode": "native-system-speech-with-web-fallback",
   "transcription": "Android/Apple/Windows system speech service; Web Speech fallback; no Clarity AI/LLM/STT model"
