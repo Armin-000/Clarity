@@ -1,7 +1,7 @@
 {
-  "name": "Clarity — hrvatski govor u tekst uživo",
+  "name": "Clarity by Codarox — govor u tekst uživo",
   "short_name": "Clarity",
-  "description": "Pristupačna web aplikacija za prijepis hrvatskog govora u stvarnom vremenu za gluhe i nagluhe osobe.",
+  "description": "Clarity by Codarox pretvara hrvatski i engleski govor u čitljiv tekst uživo. Pristupačna aplikacija za razgovore, nastavu i sastanke na mobitelu ili računalu.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f4ef",

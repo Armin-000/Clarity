@@ -352,6 +352,9 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 .accessibility-card strong { font-size: .72rem; }
 .accessibility-card small { margin-top: 3px; color: var(--muted); font-size: .61rem; line-height: 1.35; }
 .accessibility-card .chevron { color: var(--faint); }
+.mobile-tools-section { display: none; }
+.mobile-tools-grid { display: grid; gap: 10px; margin-top: 14px; }
+.mobile-tools-grid .accessibility-card { margin: 0; }
 .context-block { display: grid; grid-template-columns: 28px 1fr; gap: 10px; margin: 0 0 17px; }
 .context-number { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62rem; font-weight: 800; }
 .context-block strong { display: block; margin-bottom: 4px; font-size: .7rem; }
@@ -652,6 +655,7 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
   .mobile-sessions-panel { display: grid; }
   .workspace-body { grid-template-columns: 1fr; }
   .context-panel { display: none; }
+  .mobile-tools-section { display: block; }
   .control-dock { grid-template-columns: 1fr auto; }
   .dock-actions { justify-content: flex-end; }
   .dock-language-switcher { display: inline-flex; }
@@ -775,3 +779,10 @@ svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-widt
 @media (hover: none), (pointer: coarse) {
   .segment-actions button { min-height: 36px; padding: 7px 9px; }
 }
+
+
+/* Diskretan identitet projekta; glavni prijepis ostaje bez dodatnog sadržaja. */
+.rail-credit { margin: 3px 0 0; font-size: .62rem; line-height: 1.5; text-align: center; color: #a2aaa1; }
+.rail-credit a { color: #dce5df; text-decoration: underline; text-underline-offset: 3px; }
+.clarity-attribution { margin: 6px 18px 22px; text-align: center; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+.clarity-attribution a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }

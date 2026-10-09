@@ -310,9 +310,6 @@ async function clearDurableState() {
     fontScaleInput: $('fontScaleInput'),
     soundAlertsInput: $('soundAlertsInput'),
     soundThresholdInput: $('soundThresholdInput'),
-    vocabularyForm: $('vocabularyForm'),
-    vocabularyInput: $('vocabularyInput'),
-    vocabularyList: $('vocabularyList'),
     highContrastInput: $('highContrastInput'),
     reduceMotionInput: $('reduceMotionInput'),
     autoScrollInput: $('autoScrollInput'),
@@ -761,6 +758,8 @@ async function clearDurableState() {
   "Brza poruka": "Quick message",
   "Pokaži sugovorniku što ti treba.": "Show the other person what you need.",
   "Dodaj bilješku": "Add note",
+  "Brze radnje": "Quick actions",
+  "Alati za razgovor na manjem ekranu.": "Conversation tools for smaller screens.",
   "Upiši važan detalj u razgovor.": "Add an important detail to the conversation.",
   "Vizualna glasnoća": "Visual volume",
   "Status prepoznavanja": "Recognition status",
@@ -1365,7 +1364,7 @@ async function clearDurableState() {
     const canonicalTerms = english ? [] : SYSTEM_CANONICAL_TERMS.map(entry => entry.canonical);
     const core = english ? CORE_ENGLISH_PHRASES : CORE_CROATIAN_PHRASES;
     const modePhrases = english ? (data.phrasesEn || []) : (data.phrases || []);
-    const values = [...core, ...modePhrases, ...canonicalTerms, ...(preferences.vocabulary || [])];
+    const values = [...core, ...modePhrases, ...canonicalTerms];
     return [...new Set(values.map(value => String(value || '').normalize('NFC').trim()).filter(Boolean))].slice(0, 120);
   }
 
@@ -2487,28 +2486,7 @@ async function clearDurableState() {
     renderSpeechLanguage();
     updateAiStatus(preferences.aiRefine ? aiState : 'idle');
     renderSpeakerLabels();
-    renderWordList(dom.vocabularyList, preferences.vocabulary, removeVocabularyWord);
     renderTranscript();
-  }
-
-  function renderWordList(container, words, onRemove) {
-    container.textContent = '';
-    for (const word of words) {
-      const chip = document.createElement('span');
-      chip.append(document.createTextNode(word));
-      const remove = document.createElement('button');
-      remove.type = 'button';
-      remove.setAttribute('aria-label', `${uiIsEnglish() ? 'Remove' : 'Ukloni'} ${word}`);
-      remove.textContent = '×';
-      remove.addEventListener('click', () => onRemove(word));
-      chip.append(remove);
-      container.append(chip);
-    }
-  }
-
-  function removeVocabularyWord(word) {
-    preferences.vocabulary = preferences.vocabulary.filter(item => item !== word);
-    savePreferences();
   }
 
   function startElapsedTimer() {
@@ -3798,6 +3776,17 @@ async function clearDurableState() {
     dom.closeLargeViewButton.addEventListener('click', hideLargeView);
     dom.quickMessageButton.addEventListener('click', () => openCenterModal(dom.quickMessageModal));
     dom.addNoteButton.addEventListener('click', () => openCenterModal(dom.noteModal));
+    // Mobilne brze radnje koriste iste modale kao desktop, ali prvo zatvaraju Postavke.
+    dom.settingsPanel.querySelectorAll('[data-mobile-tool]').forEach(button => {
+      button.addEventListener('click', () => {
+        const action = button.dataset.mobileTool;
+        closePanels(false);
+        dom.mobileSettingsButton?.focus({ preventScroll: true });
+        if (action === 'large') showLargeView();
+        else if (action === 'message') openCenterModal(dom.quickMessageModal);
+        else if (action === 'note') openCenterModal(dom.noteModal);
+      });
+    });
     document.querySelectorAll('.close-center-modal').forEach(button => button.addEventListener('click', closeCenterModals));
     [dom.quickMessageModal, dom.noteModal].forEach(modal => modal.addEventListener('click', event => {
       if (event.target === modal) closeCenterModals();
@@ -3912,12 +3901,6 @@ async function clearDurableState() {
         : 'Vjerni prijepis uključen je za nove rečenice.');
     });
 
-    dom.vocabularyForm.addEventListener('submit', event => {
-      event.preventDefault();
-      if (addListItem('vocabulary', dom.vocabularyInput.value)) {
-        dom.vocabularyInput.value = '';
-      }
-    });
     dom.resetSettingsButton.addEventListener('click', () => {
       if (!window.confirm(uiIsEnglish() ? 'Restore all settings to their default values?' : 'Vratiti sve postavke na početne vrijednosti?')) return;
       preferences = structuredCloneSafe(defaultPreferences);

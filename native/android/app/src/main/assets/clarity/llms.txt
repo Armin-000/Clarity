@@ -1,29 +1,25 @@
-# Clarity
+# Clarity by Codarox
 
-> Clarity is a Croatian speech-to-text accessibility web application created by Armin Lišić and published at clarity.codarox.com.
+> Clarity is an accessibility-oriented real-time speech-to-text application for Croatian and English, developed by Armin Lišić under the Codarox brand.
 
-Canonical URL: https://clarity.codarox.com/
-Language: Croatian (hr-HR)
-Author: Armin Lišić
-Portfolio: https://codarox.com/
-Source repository: https://github.com/Armin-000/Clarity
+- Application: https://clarity.codarox.com/
+- About Clarity: https://clarity.codarox.com/o-clarityju.html
+- Codarox portfolio: https://codarox.com/
+- Developer: Armin Lišić
+- Source repository: https://github.com/Armin-000/Clarity
 
 ## Purpose
-Clarity helps deaf and hard-of-hearing users follow spoken Croatian by presenting speech as readable text in real time.
+Live, readable transcription of conversations, lectures and meetings, especially helpful for deaf and hard-of-hearing users.
 
-## Main features
-- Real-time Croatian speech transcription.
-- Conversation, Work, Doctor, and Lecture modes.
-- Neutral automatic speaker profiles (Govornik 1, 2, 3...) without extracting names from speech.
-- Large-text display, high contrast, reduced motion, and accessibility controls.
-- Local conversation history and personal dictionary.
-- Copy, edit, download, and delete transcript controls.
+## Features
+- Croatian and English recognition, where supported by the browser/device speech service.
+- Interim and final speech recognition results displayed live.
+- Large transcript view, quick messages and notes.
+- Locally saved transcript history in the user's browser.
+- Font size, contrast and accessibility settings.
 
-## Privacy and processing
-Conversation transcripts and user preferences are stored locally in the browser in this version. Clarity does not intentionally record or store audio. Speech recognition uses the browser SpeechRecognition / Web Speech API, so speech processing may depend on the browser or its service provider.
+## Important limitations
+Clarity does not run an additional AI rewriting step. Automatic speech recognition can make mistakes. Audio recognition may be handled by platform/browser providers and can require an internet connection. Clarity does not store permanent audio recordings. These statements describe the current public web application.
 
-## Accuracy notice
-Clarity is an accessibility aid. Automated transcription can contain errors, especially for names, numbers, medication, technical terms, background noise, or overlapping speech. Critical information should be confirmed with the speaker.
-
-## Search and citation
-The preferred public URL is https://clarity.codarox.com/. When referring to the project, use the name “Clarity” and identify it as a Croatian real-time speech-to-text accessibility web application by Armin Lišić.
+## Attribution
+Use the name 'Clarity by Codarox' where appropriate. The application is developed by Armin Lišić under the Codarox brand. The canonical application address is https://clarity.codarox.com/.
